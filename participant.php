@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['uniqueId'])) {
+    // User is not logged in, redirect to login page
+    header("Location: index.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

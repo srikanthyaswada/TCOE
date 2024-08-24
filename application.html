@@ -36,7 +36,7 @@
         </div>
     </div>
     <div>
-        <form>
+        <form action="applicant.php" method="post" enctype="multipart/form-data">
             <div class="row g-0" id="applicant">
                 <div class="col-md-6 m-auto">
                     <div class="container mt-4">
@@ -48,17 +48,18 @@
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="name" class="p-2">applicantName</label>
-                                            <input type="text" id="name" formControlName="name" class="form-control" />
+                                            <label for="applicantName" class="p-2">Name</label>
+                                            <input type="text" id="applicantName" name="applicantName"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="organizationName" class="p-2">Organization Name </label>
-                                            <input type="text" id="organizationName" formControlName="organizationName"
-                                                class="form-control" />
+                                            <label for="organizationName" class="p-2">Organization Name</label>
+                                            <input type="text" id="organizationName" name="organizationName"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
@@ -67,17 +68,16 @@
                                         <div class="form-group">
                                             <label for="contactNumber" class="p-2">Contact Number
                                             </label>
-                                            <input type="text" id="contactNumber" formControlName="contactNumber"
-                                                class="form-control" />
+                                            <input type="text" id="contactNumber" name="contactNumber"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="email" class="p-2">Email </label>
-                                            <input type="email" id="email" formControlName="email"
-                                                class="form-control" />
+                                            <label for="email" class="p-2">Email</label>
+                                            <input type="email" id="email" name="email" class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
@@ -85,47 +85,58 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="city" class="p-2">City</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <input type="text" id="city" name="city" class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">state</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="state" class="p-2">State</label>
+                                            <input type="text" id="state" name="state" class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">postalAddress</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="postalAddress" class="p-2">Postal Address</label>
+                                            <input type="text" id="postalAddress" name="postalAddress"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">appliying</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="applying" class="p-2">Applying as</label>
+                                            <select class="form-select" id="applying" name="applying" required>
+                                                <option value="" disabled selected>Select</option>
+                                                <option value="Startup">Startup</option>
+                                                <option value="Academia">Academia</option>
+                                                <option value="Individual/Team">Individual/Team</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">indusrty</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="industry" class="p-2">Industry Vertical</label>
+                                            <select class="form-select" id="industry" name="industry" required>
+                                                <option value="" disabled selected>Select</option>
+                                                <option value="Startup">Environment, Public Safety & Disaster Management
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">website</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="website" class="p-2">Website</label>
+                                            <input type="url" id="website" name="website" class="form-control"
+                                                required />
                                         </div>
                                     </div>
                                 </div>
@@ -145,100 +156,114 @@
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="name" class="p-2">domain</label>
-                                            <input type="text" id="name" formControlName="name" class="form-control" />
+                                            <label for="domain" class="p-2">Domain/Thrust Area</label>
+                                            <input type="text" id="domain" name="domain" class="form-control"
+                                                required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="organizationName" class="p-2">product </label>
-                                            <input type="text" id="organizationName" formControlName="organizationName"
-                                                class="form-control" />
+                                            <label for="product" class="p-2">Brief about your product/solution</label>
+                                            <textarea id="product" name="product" class="form-control"
+                                                required></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="productfile" class="p-2">productfile
+                                            <label for="productFile" class="p-2">Upload the note on Technical Details or
+                                                Product/Solution
                                             </label>
-                                            <input type="text" id="productfile" formControlName="productfile"
-                                                class="form-control" />
+                                            <input type="file" id="productFile" name="productFile" class="form-control"
+                                                required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="" class="p-2">presentation video </label>
-                                            <input type="text" id="email" formControlName="email"
-                                                class="form-control" />
+                                            <label for="presentationVideo" class="p-2">Please provide the Power Point
+                                                Presentation /two-minute product video</label>
+                                            <input type="file" id="presentationVideo" name="presentationVideo"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">technology level</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="technologyLevel" class="p-2">Stage Of Product based on minimum
+                                                Technology Readiness Level</label>
+                                            <select class="form-select" id="industry" name="industry" required>
+                                                <option value="" disabled selected>Select</option>
+                                                <option value="RL6 Large Scale">TRL6 Large Scale</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">proofPoc</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="proofPoC" class="p-2">Proof for PoC (Video, Picture etc)</label>
+                                            <input type="file" id="proofPoC" name="proofPoC" class="form-control"
+                                                required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">describeProduct</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="describeProduct" class="p-2">Describe how your solution or
+                                                products classifies as a 5G and Beyond usecase. What are the challenges
+                                                faced from connectivity solutions over 3G/4G</label>
+                                            <textarea id="describeProduct" name="describeProduct" class="form-control"
+                                                required></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">product patent</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="productPatent" class="p-2">Have you filed a patent for your
+                                                product/solution</label>
+                                            <input type="radio" id="productPatent1" name="productPatent" value="Yes"
+                                                checked />Yes
+                                            <input type="radio" id="productPatent2" name="productPatent" value="No" />No
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">indusrty</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="patentDetails" class="p-2">If yes, please provide
+                                                details</label>
+                                            <textarea id="patentDetails" name="patentDetails" class="form-control"
+                                                required></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">productdetails</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="similarProduct" class="p-2">Is there any similar product/
+                                                solution available in the market w.r.t your solution?</label>
+                                            <input type="radio" id="similarProduct" name="similarProduct"
+                                                value="Yes" />Yes
+                                            <input type="radio" id="similarProduct" name="similarProduct" value="No"
+                                                checked />No
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="city" class="p-2">similarproduct</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="city" class="p-2">simliarproductfile</label>
-                                            <input type="text" id="city" formControlName="city" class="form-control" />
+                                            <label for="similarProductFile" class="p-2">If yes, does your proposed
+                                                product have advantage over other existing solutions</label>
+                                            <input type="File" id="similarProductFile" name="similarProductFile"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
@@ -258,25 +283,29 @@
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="name" class="p-2">shareholding</label>
-                                            <input type="text" id="name" formControlName="name" class="form-control" />
+                                            <label for="shareholding" class="p-2">51% shareholding by Indian citizen or
+                                                Indian Entity (In case of Startups)</label>
+                                            <input type="file" id="shareholding" name="shareholding"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="coorporation" class="p-2">incoorporation</label>
-                                            <input type="text" id="coorporation" formControlName="coorporation"
-                                                class="form-control" />
+                                            <label for="incorporation" class="p-2">Incorporation Certificate (in case of
+                                                Startups)</label>
+                                            <input type="file" id="incorporation" name="incorporation"
+                                                class="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="id" class="p-2">id proof</label>
-                                            <input type="text" id="city" formControlName="id" class="form-control" />
+                                            <label for="idProof" class="p-2">ID Proof/ passport of Applicant</label>
+                                            <input type="file" id="idProof" name="idProof" class="form-control"
+                                                required />
                                         </div>
                                     </div>
                                 </div>
@@ -285,8 +314,8 @@
                     </div>
                 </div>
             </div>
-            <div class=" mt-4 button-section">
-                <button type="button" class="save-btn   btn m-2">Save</button>
+            <div class="mt-4 button-section">
+                <button type="button" class="save-btn btn m-2">Save</button>
                 <button type="submit" class="submit-btn btn m-2">Submit</button>
             </div>
         </form>
