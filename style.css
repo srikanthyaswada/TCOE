@@ -1,7 +1,5 @@
-/* General Styles */
 body {
-  font-family: "Inter", sans-serif; /* Ensure fallback fonts are also specified */
-  line-height: 1.6;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -10,7 +8,9 @@ body {
   width: 65px;
   height: 65px;
 }
-
+.navbar {
+  border-bottom: 1px solid #e3dfdf;
+}
 .navbar-nav .nav-item {
   position: relative;
 }
@@ -19,23 +19,18 @@ body {
   content: "|";
   position: absolute;
   left: -10px;
-  color: #333;
-  font-size: 1.2rem;
+  color: #5d5c5c;
+  font-size: 1rem;
 }
 
 .navbar-nav .nav-item .nav-link {
-  padding-right: 1.5rem;
-  color: #333;
+  padding-right: 1.2rem;
+  color: #0b0b0b;
+  display: inline;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-  color: #0056b3;
-}
-
-.navbar-nav .nav-item .btn {
-  margin-right: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  color: #010912;
 }
 
 .offcanvas-body .navbar-nav .nav-link {
@@ -48,15 +43,13 @@ body {
 
 /* Sections */
 section {
+  height: auto;
+}
+.about-section {
   padding: 60px 0;
 }
-
 section.bg-light {
   background-color: #f8f9fa;
-}
-
-.about-section {
-  text-align: center;
 }
 
 .section-heading {
@@ -65,7 +58,8 @@ section.bg-light {
   font-weight: bold;
   position: relative;
   display: inline-block;
-  margin: 0;
+
+  font-family: "Inter", sans-serif;
 }
 
 .section-heading::after {
@@ -140,50 +134,56 @@ section.bg-light {
 }
 
 /* Eligibility Section */
-#eligibility {
-  padding: 2rem 0;
-}
-
-.eligibility-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  border-top: 2px solid #ccc; /* Adjust color as needed */
-  padding-top: 1rem;
-}
-
-.not-eligible-card:nth-child(1) {
-  border-top-color: #ff6f6f; /* Red color */
-}
-
-.not-eligible-card:nth-child(2) {
-  border-top-color: #f7a676; /* Orange color */
-}
-
-.not-eligible-card:nth-child(3) {
-  border-top-color: #f0e68c; /* Khaki color */
-}
-
-.not-eligible-card:nth-child(4) {
-  border-top-color: #98fb98; /* Pale green color */
-}
-
-.not-eligible-card:nth-child(5) {
-  border-top-color: #87ceeb; /* Sky blue color */
-}
-
-.not-eligible-card:nth-child(6) {
-  border-top-color: #d3a9a1; /* Rosy brown color */
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 1.25rem;
-}
-
-p {
-  margin-bottom: 0;
-}
+#eligibility .card {
+    border: 1px solid #ddd; /* Border for the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the card */
+    padding: 10px; /* Padding inside the card */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow transition on hover */
+    margin-bottom: 25px;
+  }
+  
+  #eligibility .card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  }
+  
+  /* Apply border-top color for each card */
+  #eligibility .col-md-4:nth-child(1) .card {
+    border-top: 4px solid #28a745; /* Green color for the first card */
+  }
+  
+  #eligibility .col-md-4:nth-child(2) .card {
+    border-top: 4px solid #007bff; /* Blue color for the second card */
+  }
+  
+  #eligibility .col-md-4:nth-child(3) .card {
+    border-top: 4px solid #ffc107; /* Yellow color for the third card */
+  }
+  
+  #eligibility .col-md-4:nth-child(4) .card {
+    border-top: 4px solid #dc3545; /* Red color for the fourth card */
+  }
+  
+  #eligibility .col-md-4:nth-child(5) .card {
+    border-top: 4px solid #6c757d; /* Grey color for the fifth card */
+  }
+  
+  #eligibility .col-md-4:nth-child(6) .card {
+    border-top: 4px solid #17a2b8; /* Teal color for the sixth card */
+  }
+  
+  /* Ensure cards are of equal height */
+  #eligibility .col-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  #eligibility .card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
 
 #mentors {
   padding: 2rem 0;
