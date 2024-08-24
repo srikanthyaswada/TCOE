@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .logo {
   width: 65px;
   height: 65px;
@@ -14,7 +13,6 @@ body {
 .navbar-nav .nav-item {
   position: relative;
 }
-
 .navbar-nav .nav-item:not(:first-child)::before {
   content: "|";
   position: absolute;
@@ -22,25 +20,20 @@ body {
   color: #5d5c5c;
   font-size: 1rem;
 }
-
 .navbar-nav .nav-item .nav-link {
   padding-right: 1.2rem;
   color: #0b0b0b;
   display: inline;
 }
-
 .navbar-nav .nav-item .nav-link:hover {
   color: #010912;
 }
-
 .offcanvas-body .navbar-nav .nav-link {
   color: #333;
 }
-
 .offcanvas-body .navbar-nav .nav-link:hover {
   color: #0056b3;
 }
-
 /* Sections */
 section {
   height: auto;
@@ -51,17 +44,14 @@ section {
 section.bg-light {
   background-color: #f8f9fa;
 }
-
 .section-heading {
   padding-top: 50px;
   font-size: 2rem;
   font-weight: bold;
   position: relative;
   display: inline-block;
-
   font-family: "Inter", sans-serif;
 }
-
 .section-heading::after {
   content: "";
   display: block;
@@ -70,52 +60,42 @@ section.bg-light {
   background-color: #000;
   margin: 10px auto 0;
 }
-
 /* Problem Statements Section */
 #problem-statements {
   background-color: #f8f9fa;
   padding: 3rem 0;
 }
-
 #problem-statements .carousel-item {
   transition: transform 0.5s ease-in-out;
 }
-
 #problem-statements .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: none;
   margin-bottom: 2rem;
-
   display: flex;
   flex-direction: column;
 }
-
 #problem-statements .card-body {
   flex: 1; /* Allow the card body to grow and take up remaining space */
 }
-
 #problem-statements .card-img-top {
   width: 100%;
   height: 250px; /* Adjust as needed */
 }
-
 #problem-statements .card-title {
   font-weight: 500;
   font-size: 15px; /* Adjust size as needed */
 }
-
 #problem-statements .btn-primary {
   background-color: #6f42c1;
   border-color: #6f42c1;
   border-radius: 30px;
   font-size: 15px;
 }
-
 #problem-statements .carousel-control-prev-icon,
 #problem-statements .carousel-control-next-icon {
   filter: invert(1);
 }
-
 #problem-statements h2 {
   font-weight: bold;
   text-transform: uppercase;
@@ -123,7 +103,6 @@ section.bg-light {
   position: relative;
   font-size: 2rem;
 }
-
 #problem-statements h2::after {
   content: "";
   display: block;
@@ -132,63 +111,50 @@ section.bg-light {
   background-color: #000;
   margin: 10px auto 0;
 }
-
 /* Eligibility Section */
 #eligibility .card {
-    border: 1px solid #ddd; /* Border for the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the card */
-    padding: 10px; /* Padding inside the card */
-    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow transition on hover */
-    margin-bottom: 25px;
-  }
-  
-  #eligibility .card:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
-  }
-  
-  /* Apply border-top color for each card */
-  #eligibility .col-md-4:nth-child(1) .card {
-    border-top: 4px solid #28a745; /* Green color for the first card */
-  }
-  
-  #eligibility .col-md-4:nth-child(2) .card {
-    border-top: 4px solid #007bff; /* Blue color for the second card */
-  }
-  
-  #eligibility .col-md-4:nth-child(3) .card {
-    border-top: 4px solid #ffc107; /* Yellow color for the third card */
-  }
-  
-  #eligibility .col-md-4:nth-child(4) .card {
-    border-top: 4px solid #dc3545; /* Red color for the fourth card */
-  }
-  
-  #eligibility .col-md-4:nth-child(5) .card {
-    border-top: 4px solid #6c757d; /* Grey color for the fifth card */
-  }
-  
-  #eligibility .col-md-4:nth-child(6) .card {
-    border-top: 4px solid #17a2b8; /* Teal color for the sixth card */
-  }
-  
-  /* Ensure cards are of equal height */
-  #eligibility .col-md-4 {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-  }
-  
-  #eligibility .card {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  
-
+  border: 1px solid #ddd; /* Border for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the card */
+  padding: 10px; /* Padding inside the card */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth shadow transition on hover */
+  margin-bottom: 25px;
+}
+#eligibility .card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+/* Apply border-top color for each card */
+#eligibility .col-md-4:nth-child(1) .card {
+  border-top: 4px solid #28a745; /* Green color for the first card */
+}
+#eligibility .col-md-4:nth-child(2) .card {
+  border-top: 4px solid #007bff; /* Blue color for the second card */
+}
+#eligibility .col-md-4:nth-child(3) .card {
+  border-top: 4px solid #ffc107; /* Yellow color for the third card */
+}
+#eligibility .col-md-4:nth-child(4) .card {
+  border-top: 4px solid #dc3545; /* Red color for the fourth card */
+}
+#eligibility .col-md-4:nth-child(5) .card {
+  border-top: 4px solid #6c757d; /* Grey color for the fifth card */
+}
+#eligibility .col-md-4:nth-child(6) .card {
+  border-top: 4px solid #17a2b8; /* Teal color for the sixth card */
+}
+/* Ensure cards are of equal height */
+#eligibility .col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+#eligibility .card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 #mentors {
   padding: 2rem 0;
 }
-
 #mentors h2 {
   font-weight: bold;
   text-transform: uppercase;
@@ -196,7 +162,6 @@ section.bg-light {
   position: relative;
   font-size: 2rem;
 }
-
 #mentors h2::after {
   content: "";
   display: block;
@@ -205,40 +170,33 @@ section.bg-light {
   background-color: #000;
   margin: 10px auto 0;
 }
-
 .mentor-card {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   background: #fff;
 }
-
 .mentor-img {
   width: 40%;
   height: 150px;
   border-radius: 50%;
 }
-
 .mentor-info {
   padding: 15px;
   text-align: center;
 }
-
 .mentor-name {
   font-size: 1.25rem;
   margin: 0;
 }
-
 .mentor-role {
   color: #6c757d;
   margin: 0;
 }
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(1);
 }
-
 .accordion-button {
   display: flex;
   align-items: center;
@@ -247,80 +205,64 @@ section.bg-light {
   background: #fff; /* Ensure background is white */
   border: none; /* Remove border if needed */
 }
-
 .accordion-icon {
   font-size: 1.2rem; /* Adjust size as needed */
   color: #007bff; /* Adjust color as needed */
   position: absolute;
   left: 1rem; /* Adjust distance from left */
 }
-
 .accordion-button .accordion-icon {
   z-index: 1; /* Ensure icon is above any other elements */
 }
-
 .accordion-button span {
   margin-left: 2.5rem; /* Add space between icon and text */
   transition: color 0.3s ease; /* Smooth color transition */
 }
-
 .accordion-button:not(.collapsed) span {
   color: #007bff; /* Blue color when expanded */
 }
-
 .accordion-button::after {
   display: none; /* Hide default arrow */
 }
-
 .accordion-body ul {
   list-style: none; /* Remove default list item dots */
   padding-left: 0; /* Remove default padding */
 }
-
 .accordion-item {
   margin-bottom: 1rem; /* Space between accordion items */
 }
-
 @media (max-width: 576px) {
   .accordion-button {
     font-size: 1rem; /* Adjust font size for smaller screens */
   }
 }
-
 #prize-money .card {
   border-radius: 8px;
 }
-
 #prize-money .card-title {
   font-weight: bold;
 }
-
 #prize-money .card-text {
   font-size: 1.25rem;
 }
-
 @media (max-width: 768px) {
   #prize-money .card-text {
     font-size: 1rem;
   }
 }
-
 #contact {
   padding: 5rem 0;
 }
-
 .contact-location {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: #007bff; /* Optional: Use a color that matches your theme */
 }
-
 .contact-card p {
   margin: 0;
   font-size: 1rem;
   color: #333; /* Optional: Adjust text color */
 }
-
 .contact-card strong {
   display: block;
   font-size: 1.2rem;
@@ -333,7 +275,6 @@ section.bg-light {
   border: 1px solid #c7b7b7;
   transition: box-shadow 0.3s ease;
 }
-
 .contact-card:hover {
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.1);
 }
