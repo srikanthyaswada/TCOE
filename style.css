@@ -1,0 +1,346 @@
+/* General Styles */
+body {
+  font-family: "Inter", sans-serif; /* Ensure fallback fonts are also specified */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+}
+
+.navbar-nav .nav-item:not(:first-child)::before {
+  content: "|";
+  position: absolute;
+  left: -10px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+  padding-right: 1.5rem;
+  color: #333;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #0056b3;
+}
+
+.navbar-nav .nav-item .btn {
+  margin-right: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.offcanvas-body .navbar-nav .nav-link {
+  color: #333;
+}
+
+.offcanvas-body .navbar-nav .nav-link:hover {
+  color: #0056b3;
+}
+
+/* Sections */
+section {
+  padding: 60px 0;
+}
+
+section.bg-light {
+  background-color: #f8f9fa;
+}
+
+.about-section {
+  text-align: center;
+}
+
+.section-heading {
+  padding-top: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: #000;
+  margin: 10px auto 0;
+}
+
+/* Problem Statements Section */
+#problem-statements {
+  background-color: #f8f9fa;
+  padding: 3rem 0;
+}
+
+#problem-statements .carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
+
+#problem-statements .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-bottom: 2rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#problem-statements .card-body {
+  flex: 1; /* Allow the card body to grow and take up remaining space */
+}
+
+#problem-statements .card-img-top {
+  width: 100%;
+  height: 250px; /* Adjust as needed */
+}
+
+#problem-statements .card-title {
+  font-weight: 500;
+  font-size: 15px; /* Adjust size as needed */
+}
+
+#problem-statements .btn-primary {
+  background-color: #6f42c1;
+  border-color: #6f42c1;
+  border-radius: 30px;
+  font-size: 15px;
+}
+
+#problem-statements .carousel-control-prev-icon,
+#problem-statements .carousel-control-next-icon {
+  filter: invert(1);
+}
+
+#problem-statements h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+  font-size: 2rem;
+}
+
+#problem-statements h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #000;
+  margin: 10px auto 0;
+}
+
+/* Eligibility Section */
+#eligibility {
+  padding: 2rem 0;
+}
+
+.eligibility-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 2px solid #ccc; /* Adjust color as needed */
+  padding-top: 1rem;
+}
+
+.not-eligible-card:nth-child(1) {
+  border-top-color: #ff6f6f; /* Red color */
+}
+
+.not-eligible-card:nth-child(2) {
+  border-top-color: #f7a676; /* Orange color */
+}
+
+.not-eligible-card:nth-child(3) {
+  border-top-color: #f0e68c; /* Khaki color */
+}
+
+.not-eligible-card:nth-child(4) {
+  border-top-color: #98fb98; /* Pale green color */
+}
+
+.not-eligible-card:nth-child(5) {
+  border-top-color: #87ceeb; /* Sky blue color */
+}
+
+.not-eligible-card:nth-child(6) {
+  border-top-color: #d3a9a1; /* Rosy brown color */
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+#mentors {
+  padding: 2rem 0;
+}
+
+#mentors h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+  font-size: 2rem;
+}
+
+#mentors h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #000;
+  margin: 10px auto 0;
+}
+
+.mentor-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+}
+
+.mentor-img {
+  width: 40%;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.mentor-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.mentor-name {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.mentor-role {
+  color: #6c757d;
+  margin: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+.accordion-button {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  background: #fff; /* Ensure background is white */
+  border: none; /* Remove border if needed */
+}
+
+.accordion-icon {
+  font-size: 1.2rem; /* Adjust size as needed */
+  color: #007bff; /* Adjust color as needed */
+  position: absolute;
+  left: 1rem; /* Adjust distance from left */
+}
+
+.accordion-button .accordion-icon {
+  z-index: 1; /* Ensure icon is above any other elements */
+}
+
+.accordion-button span {
+  margin-left: 2.5rem; /* Add space between icon and text */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.accordion-button:not(.collapsed) span {
+  color: #007bff; /* Blue color when expanded */
+}
+
+.accordion-button::after {
+  display: none; /* Hide default arrow */
+}
+
+.accordion-body ul {
+  list-style: none; /* Remove default list item dots */
+  padding-left: 0; /* Remove default padding */
+}
+
+.accordion-item {
+  margin-bottom: 1rem; /* Space between accordion items */
+}
+
+@media (max-width: 576px) {
+  .accordion-button {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+}
+
+#prize-money .card {
+  border-radius: 8px;
+}
+
+#prize-money .card-title {
+  font-weight: bold;
+}
+
+#prize-money .card-text {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  #prize-money .card-text {
+    font-size: 1rem;
+  }
+}
+
+#contact {
+  padding: 5rem 0;
+}
+
+.contact-location {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #007bff; /* Optional: Use a color that matches your theme */
+}
+
+.contact-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333; /* Optional: Adjust text color */
+}
+
+.contact-card strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.contact-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #c7b7b7;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.1);
+}
+.modal-content {
+  border-radius: 0 !important;
+}
+#applyModal .modal-content,
+#authModal .modal-content {
+  border-radius: 0 !important;
+}
