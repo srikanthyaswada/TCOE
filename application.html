@@ -1,325 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Forms</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/application.css">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/application.css" />
+  </head>
 
-<body>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="./assets/images/Tcoe_logo.jpg"
+            alt="Logo"
+            width="80"
+            height="50"
+          />
+        </a>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="profileDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person-circle" style="font-size: 2rem"></i>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="profileDropdown"
+            >
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Application</a></li>
+              <li><a class="dropdown-item" href="#">Apply</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
     <div class="row g-0">
-        <div class="col-sm-6 m-auto text-primary">
-            <div class="container mt-5">
-                <div class="text-center">
-                    <h4>Applications: 5G Enabled Consoles/Devices For Students</h4>
-                </div>
-                <div class="stepper-wrapper">
-                    <div class="stepper-item">
-                        <div class="step-counter">1</div>
-                        <div class="step-name"><a href="#applicant" class="nav-link active">Applicant Data</a></div>
-                    </div>
-                    <div class="stepper-item">
-                        <div class="step-counter">2</div>
-                        <div class="step-name"><a href="#techincal" class="nav-link ">Techinical data</a></div>
-                    </div>
-                    <div class="stepper-item">
-                        <div class="step-counter">3</div>
-                        <div class="step-name"><a href="#document" class="nav-link">Document data</a></div>
-                    </div>
-                </div>
+      <div class="col-sm-6 m-auto text-primary">
+        <div class="container mt-5">
+          <div class="text-center">
+            <h4>Applications: 5G Enabled Consoles/Devices For Students</h4>
+          </div>
+          <div class="stepper-wrapper">
+            <div class="stepper-item">
+              <div class="step-counter">1</div>
+              <div class="step-name">
+                <a href="#applicant" class="nav-link active">Applicant Data</a>
+              </div>
             </div>
+            <div class="stepper-item">
+              <div class="step-counter">2</div>
+              <div class="step-name">
+                <a href="#techincal" class="nav-link">Techinical data</a>
+              </div>
+            </div>
+            <div class="stepper-item">
+              <div class="step-counter">3</div>
+              <div class="step-name">
+                <a href="#document" class="nav-link">Document data</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div>
-        <form action="applicant.php" method="post" enctype="multipart/form-data">
-            <div class="row g-0" id="applicant">
-                <div class="col-md-6 m-auto">
-                    <div class="container mt-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="text">Applicant Details</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="applicantName" class="p-2">Name</label>
-                                            <input type="text" id="applicantName" name="applicantName"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="organizationName" class="p-2">Organization Name</label>
-                                            <input type="text" id="organizationName" name="organizationName"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="contactNumber" class="p-2">Contact Number
-                                            </label>
-                                            <input type="text" id="contactNumber" name="contactNumber"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="email" class="p-2">Email</label>
-                                            <input type="email" id="email" name="email" class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="city" class="p-2">City</label>
-                                            <input type="text" id="city" name="city" class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="state" class="p-2">State</label>
-                                            <input type="text" id="state" name="state" class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="postalAddress" class="p-2">Postal Address</label>
-                                            <input type="text" id="postalAddress" name="postalAddress"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="applying" class="p-2">Applying as</label>
-                                            <select class="form-select" id="applying" name="applying" required>
-                                                <option value="" disabled selected>Select</option>
-                                                <option value="Startup">Startup</option>
-                                                <option value="Academia">Academia</option>
-                                                <option value="Individual/Team">Individual/Team</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="industry" class="p-2">Industry Vertical</label>
-                                            <select class="form-select" id="industry" name="industry" required>
-                                                <option value="" disabled selected>Select</option>
-                                                <option value="Startup">Environment, Public Safety & Disaster Management
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="website" class="p-2">Website</label>
-                                            <input type="url" id="website" name="website" class="form-control"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <form action="applicant.php" method="post" enctype="multipart/form-data">
+        <div class="row g-0" id="applicant">
+          <div class="col-md-6 m-auto">
+            <div class="container mt-4">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="text">Applicant Details</h5>
                 </div>
-            </div>
-            <div class="row g-0" id="techincal">
-                <div class="col-md-6 m-auto">
-                    <div class="container">
-                        <div class="card">
-                            <div class="card-header text-center">
-                                <h5>Techinical Datails</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="domain" class="p-2">Domain/Thrust Area</label>
-                                            <input type="text" id="domain" name="domain" class="form-control"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="product" class="p-2">Brief about your product/solution</label>
-                                            <textarea id="product" name="product" class="form-control"
-                                                required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="productFile" class="p-2">Upload the note on Technical Details or
-                                                Product/Solution
-                                            </label>
-                                            <input type="file" id="productFile" name="productFile" class="form-control"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="presentationVideo" class="p-2">Please provide the Power Point
-                                                Presentation /two-minute product video</label>
-                                            <input type="file" id="presentationVideo" name="presentationVideo"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="technologyLevel" class="p-2">Stage Of Product based on minimum
-                                                Technology Readiness Level</label>
-                                            <select class="form-select" id="industry" name="industry" required>
-                                                <option value="" disabled selected>Select</option>
-                                                <option value="RL6 Large Scale">TRL6 Large Scale</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="proofPoC" class="p-2">Proof for PoC (Video, Picture etc)</label>
-                                            <input type="file" id="proofPoC" name="proofPoC" class="form-control"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="describeProduct" class="p-2">Describe how your solution or
-                                                products classifies as a 5G and Beyond usecase. What are the challenges
-                                                faced from connectivity solutions over 3G/4G</label>
-                                            <textarea id="describeProduct" name="describeProduct" class="form-control"
-                                                required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="productPatent" class="p-2">Have you filed a patent for your
-                                                product/solution</label>
-                                            <input type="radio" id="productPatent1" name="productPatent" value="Yes"
-                                                checked />Yes
-                                            <input type="radio" id="productPatent2" name="productPatent" value="No" />No
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="patentDetails" class="p-2">If yes, please provide
-                                                details</label>
-                                            <textarea id="patentDetails" name="patentDetails" class="form-control"
-                                                required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="similarProduct" class="p-2">Is there any similar product/
-                                                solution available in the market w.r.t your solution?</label>
-                                            <input type="radio" id="similarProduct" name="similarProduct"
-                                                value="Yes" />Yes
-                                            <input type="radio" id="similarProduct" name="similarProduct" value="No"
-                                                checked />No
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="similarProductFile" class="p-2">If yes, does your proposed
-                                                product have advantage over other existing solutions</label>
-                                            <input type="File" id="similarProductFile" name="similarProductFile"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card-body">
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="applicantName" class="p-2">Name</label>
+                        <input
+                          type="text"
+                          id="applicantName"
+                          name="applicantName"
+                          class="form-control"
+                          required
+                        />
+                      </div>
                     </div>
-                </div>
-            </div>
-            <div class="row g-0" id="document">
-                <div class="col-md-6 m-auto">
-                    <div class="container">
-                        <div class="card">
-                            <div class="card-header text-center">
-                                <h5>Document Details</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="shareholding" class="p-2">51% shareholding by Indian citizen or
-                                                Indian Entity (In case of Startups)</label>
-                                            <input type="file" id="shareholding" name="shareholding"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="incorporation" class="p-2">Incorporation Certificate (in case of
-                                                Startups)</label>
-                                            <input type="file" id="incorporation" name="incorporation"
-                                                class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="idProof" class="p-2">ID Proof/ passport of Applicant</label>
-                                            <input type="file" id="idProof" name="idProof" class="form-control"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="organizationName" class="p-2"
+                          >Organization Name</label
+                        >
+                        <input
+                          type="text"
+                          id="organizationName"
+                          name="organizationName"
+                          class="form-control"
+                          required
+                        />
+                      </div>
                     </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="contactNumber" class="p-2"
+                          >Contact Number
+                        </label>
+                        <input
+                          type="text"
+                          id="contactNumber"
+                          name="contactNumber"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="email" class="p-2">Email</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="city" class="p-2">City</label>
+                        <input
+                          type="text"
+                          id="city"
+                          name="city"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="state" class="p-2">State</label>
+                        <input
+                          type="text"
+                          id="state"
+                          name="state"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="postalAddress" class="p-2"
+                          >Postal Address</label
+                        >
+                        <input
+                          type="text"
+                          id="postalAddress"
+                          name="postalAddress"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="applying" class="p-2">Applying as</label>
+                        <select
+                          class="form-select"
+                          id="applying"
+                          name="applying"
+                          required
+                        >
+                          <option value="" disabled selected>Select</option>
+                          <option value="Startup">Startup</option>
+                          <option value="Academia">Academia</option>
+                          <option value="Individual/Team">
+                            Individual/Team
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="industry" class="p-2"
+                          >Industry Vertical</label
+                        >
+                        <select
+                          class="form-select"
+                          id="industry"
+                          name="industry"
+                          required
+                        >
+                          <option value="" disabled selected>Select</option>
+                          <option value="Startup">
+                            Environment, Public Safety & Disaster Management
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="website" class="p-2">Website</label>
+                        <input
+                          type="url"
+                          id="website"
+                          name="website"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="mt-4 button-section">
-                <button type="button" class="save-btn btn m-2">Save</button>
-                <button type="submit" class="submit-btn btn m-2">Submit</button>
+          </div>
+        </div>
+        <div class="row g-0" id="techincal">
+          <div class="col-md-6 m-auto">
+            <div class="container">
+              <div class="card">
+                <div class="card-header text-center">
+                  <h5>Techinical Datails</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="domain" class="p-2"
+                          >Domain/Thrust Area</label
+                        >
+                        <input
+                          type="text"
+                          id="domain"
+                          name="domain"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="product" class="p-2"
+                          >Brief about your product/solution</label
+                        >
+                        <textarea
+                          id="product"
+                          name="product"
+                          class="form-control"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="productFile" class="p-2"
+                          >Upload the note on Technical Details or
+                          Product/Solution
+                        </label>
+                        <input
+                          type="file"
+                          id="productFile"
+                          name="productFile"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="presentationVideo" class="p-2"
+                          >Please provide the Power Point Presentation
+                          /two-minute product video</label
+                        >
+                        <input
+                          type="file"
+                          id="presentationVideo"
+                          name="presentationVideo"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="technologyLevel" class="p-2"
+                          >Stage Of Product based on minimum Technology
+                          Readiness Level</label
+                        >
+                        <select
+                          class="form-select"
+                          id="industry"
+                          name="industry"
+                          required
+                        >
+                          <option value="" disabled selected>Select</option>
+                          <option value="RL6 Large Scale">
+                            TRL6 Large Scale
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="proofPoC" class="p-2"
+                          >Proof for PoC (Video, Picture etc)</label
+                        >
+                        <input
+                          type="file"
+                          id="proofPoC"
+                          name="proofPoC"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="describeProduct" class="p-2"
+                          >Describe how your solution or products classifies as
+                          a 5G and Beyond usecase. What are the challenges faced
+                          from connectivity solutions over 3G/4G</label
+                        >
+                        <textarea
+                          id="describeProduct"
+                          name="describeProduct"
+                          class="form-control"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="productPatent" class="p-2"
+                          >Have you filed a patent for your
+                          product/solution</label
+                        >
+                        <input
+                          type="radio"
+                          id="productPatent1"
+                          name="productPatent"
+                          value="Yes"
+                          checked
+                        />Yes
+                        <input
+                          type="radio"
+                          id="productPatent2"
+                          name="productPatent"
+                          value="No"
+                        />No
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="patentDetails" class="p-2"
+                          >If yes, please provide details</label
+                        >
+                        <textarea
+                          id="patentDetails"
+                          name="patentDetails"
+                          class="form-control"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="similarProduct" class="p-2"
+                          >Is there any similar product/ solution available in
+                          the market w.r.t your solution?</label
+                        >
+                        <input
+                          type="radio"
+                          id="similarProduct"
+                          name="similarProduct"
+                          value="Yes"
+                        />Yes
+                        <input
+                          type="radio"
+                          id="similarProduct"
+                          name="similarProduct"
+                          value="No"
+                          checked
+                        />No
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="similarProductFile" class="p-2"
+                          >If yes, does your proposed product have advantage
+                          over other existing solutions</label
+                        >
+                        <input
+                          type="File"
+                          id="similarProductFile"
+                          name="similarProductFile"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </form>
+          </div>
+        </div>
+        <div class="row g-0" id="document">
+          <div class="col-md-6 m-auto">
+            <div class="container">
+              <div class="card">
+                <div class="card-header text-center">
+                  <h5>Document Details</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="shareholding" class="p-2"
+                          >51% shareholding by Indian citizen or Indian Entity
+                          (In case of Startups)</label
+                        >
+                        <input
+                          type="file"
+                          id="shareholding"
+                          name="shareholding"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="incorporation" class="p-2"
+                          >Incorporation Certificate (in case of
+                          Startups)</label
+                        >
+                        <input
+                          type="file"
+                          id="incorporation"
+                          name="incorporation"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="idProof" class="p-2"
+                          >ID Proof/ passport of Applicant</label
+                        >
+                        <input
+                          type="file"
+                          id="idProof"
+                          name="idProof"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 button-section">
+          <button type="button" class="save-btn btn m-2">Save</button>
+          <button type="submit" class="submit-btn btn m-2">Submit</button>
+        </div>
+      </form>
     </div>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+  </body>
 </html>
