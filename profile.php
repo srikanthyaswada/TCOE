@@ -4,7 +4,7 @@ include 'db_connect.php';
 
 if (!isset($_SESSION['uniqueId'])) {
     // User is not logged in, redirect to login page
-    header("Location: index.html");
+    header("Location: home");
     exit();
 }
 $uniqueId = $_SESSION['uniqueId'];
@@ -63,11 +63,11 @@ $uniqueId = $_SESSION['uniqueId'];
                     <ul
                         class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="profileDropdown">
-                        <li><a class="dropdown-item" href="participant.php">My Dashboard</a></li>
-                        <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-                        <li><a class="dropdown-item" href="application.html">Application</a></li>
-                        <li><a class="dropdown-item" href="applicantView.php">View</a></li>
-                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        <li><a class="dropdown-item" href="participant">My Dashboard</a></li>
+                        <li><a class="dropdown-item" href="profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="application">Application</a></li>
+                        <li><a class="dropdown-item" href="applicantView">View</a></li>
+                        <li><a class="dropdown-item" href="logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>

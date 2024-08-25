@@ -41,7 +41,7 @@ if ($conn->query($sql) === TRUE) {
     } else {
         echo "<script>alert('Registration successful!...Mail Not sent Network Issue');</script>";
     }
-    echo "<script> window.location.href='index.html';</script>";
+    echo "<script> window.location.href='home';</script>";
 } else {
     echo "<script>alert(''.$conn->error);</script>";
 }

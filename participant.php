@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['uniqueId'])) {
     // User is not logged in, redirect to login page
-    header("Location: index.html");
+    header("Location: home");
     exit();
 }
 ?>
@@ -67,11 +67,11 @@ if (!isset($_SESSION['uniqueId'])) {
               class="dropdown-menu dropdown-menu-end"
               aria-labelledby="profileDropdown"
             >
-            <li><a class="dropdown-item" href="participant.php">My Dashboard</a></li>
-              <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-              <li><a class="dropdown-item" href="application.html">Application</a></li>
-              <li><a class="dropdown-item" href="applicantView.php">View</a></li>
-              <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+            <li><a class="dropdown-item" href="participant">My Dashboard</a></li>
+              <li><a class="dropdown-item" href="profile">Profile</a></li>
+              <li><a class="dropdown-item" href="application">Application</a></li>
+              <li><a class="dropdown-item" href="applicantView">View</a></li>
+              <li><a class="dropdown-item" href="logout">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -706,7 +706,7 @@ if (!isset($_SESSION['uniqueId'])) {
               </ol>
               <div class="modal-footer">
               <button type="button" class="btn btn-primary mt-3">
-                <a href="application.html" class="text-white text-decoration-none">I Agree</a>
+                <a href="application" class="text-white text-decoration-none">I Agree</a>
               </button>
               </div>
             </div>

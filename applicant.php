@@ -107,7 +107,7 @@ $sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo,
 $sql2 = "INSERT INTO documents (shareholding, incorporation, idProof, status, createAt, uniqueId) VALUES ('$shareholding', '$incorporation', '$idProof', '$status', '$createAt', '$uniqueId')";
 if ($conn->query($sql) === TRUE && $conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
     // Redirect to another page after successful submission
-    header("Refresh: 5; URL=application.html");
+    header("Refresh: 5; URL=application");
     echo "Registration successful...";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

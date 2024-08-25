@@ -24,7 +24,7 @@ if ($sql->num_rows > 0) {
         $_SESSION['uniqueId'] = $uniqueId;
         echo "Login successful! Welcome, " . $email;
         // Redirect to a protected page or dashboard
-        header("Location: participant.php");
+        header("Location: participant");
         exit();
     } else {
         echo "Invalid email or password!";
