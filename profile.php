@@ -1,21 +1,18 @@
 <?php
 session_start();
 include 'db_connect.php';
-
 if (!isset($_SESSION['uniqueId'])) {
-    // User is not logged in, redirect to login page
     header("Location: home");
     exit();
 }
 $uniqueId = $_SESSION['uniqueId'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <title>Forms</title>
+    <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
         rel="stylesheet"
@@ -48,7 +45,6 @@ $uniqueId = $_SESSION['uniqueId'];
                     width="80"
                     height="50" />
             </a>
-
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a
@@ -77,29 +73,22 @@ $uniqueId = $_SESSION['uniqueId'];
         <div class="col-sm-6 m-auto text-primary">
             <?php
             $sql = "SELECT * FROM users WHERE uniqueId = ?";
-
-            // Initialize a prepared statement
             $stmt = $conn->prepare($sql);
-
-            // Bind parameters
-            $stmt->bind_param("i", $uniqueId); // "i" indicates the type is integer
-
-            // Execute the query
+            $stmt->bind_param("i", $uniqueId);
             $stmt->execute();
-
-            // Get the result
             $result = $stmt->get_result();
-
-            // Check if a record was found
             if ($result->num_rows > 0) {
-                // Fetch the data
                 $row = $result->fetch_assoc();
-
-                // Display the data
-                echo "Name: " . $row['fullname'] . "<br>";
-                echo "Email: " . $row['email'] . "<br>";
+            ?>
+                <div class="card p-5">
+                    <div class="">Personal</div>
+                    <div class="mt-3">Name<strong class="mx-5"><?= $row['fullname'] ?></strong></div>
+                    <div class="mt-3">Email<strong class="mx-5"><?= $row['email'] ?></strong></div>
+                    <div class="mt-3">I am<strong class="mx-5"><?= $row['categoryType'] ?></strong></div>
+                </div>
+            <?php
             } else {
-                echo "No record found for ID: " . $id;
+                echo "<script>alert('No record found for ID');</script>";
             }
             ?>
         </div>
