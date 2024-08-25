@@ -24,11 +24,26 @@ if ($conn->query($sql) === TRUE) {
             $folderName = "assets/users";
         }
     }
-    header("Refresh: 5; URL=index.html");
-    echo "Registration successful!...";
-    exit();
+
+    $randomNumber = mt_rand(100000, 999999);
+    $to = $email;
+    $subject = "Registration";
+    $message = "Hello" . $fullname . ",\r\n Your Access Code is " . $randomNumber;
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: swamy.vitasoft@gmail.com" . "\r\n";
+    $headers .= "Reply-To: swamy.vitasoft@gmail.com" . "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+
+    // Send the email
+    if (mail($to, $subject, $message, $headers)) {
+        echo "<script>alert('Registration successful!...Access Code sent your registered mail');</script>";
+    } else {
+        echo "<script>alert('Registration successful!...Mail Not sent Network Issue');</script>";
+    }
+    echo "<script> window.location.href='index.html';</script>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "<script>alert(''.$conn->error);</script>";
 }
 
 $conn->close();
