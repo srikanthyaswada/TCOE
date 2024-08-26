@@ -1,3 +1,9 @@
+<?php
+$problemStatementValue = "5G & 6G HACKATHON-2024 Idea Submission";
+if (isset($_POST['problemStatementValue'])) {
+  $problemStatementValue = $_POST['problemStatementValue'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +71,7 @@
     <div class="col-sm-6 m-auto text-primary">
       <div class="container mt-5">
         <div class="text-center">
-          <h4>Application: 5G & 6G HACKATHON-2024 Idea Submission</h4>
+          <h4>Application: <?= $problemStatementValue ?></h4>
         </div>
         <div class="stepper-wrapper">
           <div class="stepper-item">
@@ -391,8 +397,7 @@
                         type="radio"
                         id="productPatent1"
                         name="productPatent"
-                        value="Yes"
-                        checked />Yes
+                        value="Yes" checked />Yes
                       <input
                         type="radio"
                         id="productPatent2"
@@ -401,7 +406,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row justify-content">
+                <div class="row justify-content" id="productPatentId" style="display: block;">
                   <div class="col">
                     <div class="form-group mb-3">
                       <label for="patentDetails" class="p-2">If yes, please provide details</label>
@@ -419,31 +424,31 @@
                       <label for="similarProduct" class="p-2"><span style="color: red">*</span>Is there any similar
                         product/ solution available in the market w.r.t your
                         solution?</label>
+                      <br>
                       <input
                         type="radio"
-                        id="similarProduct"
+                        id="similarProduct1"
                         name="similarProduct"
                         value="Yes" checked />Yes
                       <input
                         type="radio"
-                        id="similarProduct"
+                        id="similarProduct2"
                         name="similarProduct"
                         value="No" />No
                     </div>
                   </div>
                 </div>
-                <div class="row justify-content">
+                <div class="row justify-content" id="similarProductId" style="display: block;">
                   <div class="col">
                     <div class="form-group mb-3">
-                      <label for="similarProductFile" class="p-2"><span style="color: red">*</span>If yes, does your
+                      <label for="similarProductFile" class="p-2">If yes, does your
                         proposed product have advantage over other existing
                         solutions</label>
                       <input
                         type="File"
                         id="similarProductFile"
                         name="similarProductFile"
-                        class="form-control"
-                        required />
+                        class="form-control" />
                     </div>
                   </div>
                 </div>
@@ -536,3 +541,41 @@
 </body>
 
 </html>
+<script>
+  // Get references to the radio buttons and the text field container
+  var productPatent1 = document.getElementById('productPatent1');
+  var productPatent2 = document.getElementById('productPatent2');
+  var productPatentId = document.getElementById('productPatentId');
+
+  // Add event listeners to the radio buttons
+  productPatent1.addEventListener('change', function() {
+    if (productPatent1.checked) {
+      productPatentId.style.display = 'block'; // Show the text field
+    }
+  });
+
+  productPatent2.addEventListener('change', function() {
+    if (productPatent2.checked) {
+      productPatentId.style.display = 'none'; // Hide the text field
+    }
+  });
+</script>
+<script>
+  // Get references to the radio buttons and the text field container
+  var similarProduct1 = document.getElementById('similarProduct1');
+  var similarProduct2 = document.getElementById('similarProduct2');
+  var similarProductId = document.getElementById('similarProductId');
+
+  // Add event listeners to the radio buttons
+  similarProduct1.addEventListener('change', function() {
+    if (similarProduct1.checked) {
+      similarProductId.style.display = 'block'; // Show the text field
+    }
+  });
+
+  similarProduct2.addEventListener('change', function() {
+    if (similarProduct2.checked) {
+      similarProductId.style.display = 'none'; // Hide the text field
+    }
+  });
+</script>

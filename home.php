@@ -474,7 +474,7 @@
           </div>
 
           <!-- Carousel controls -->
-          <button
+          <!-- <button
             class="carousel-control-prev"
             type="button"
             data-bs-target="#problemStatementsCarousel"
@@ -493,7 +493,7 @@
               class="carousel-control-next-icon"
               aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-          </button>
+          </button> -->
 
           <!-- Carousel indicators -->
           <div class="carousel-indicators position-relative mt-4">
@@ -1476,52 +1476,37 @@
         <div class="text-center">
           <h2 class="section-heading">Meet Our Mentors</h2>
         </div>
-        <div
-          id="mentorsCarousel"
-          class="carousel slide"
-          data-bs-ride="carousel">
+        <div id="mentorsCarousel" class="carousel slide" data-bs-ride="carousel">
           <!-- Carousel Inner -->
           <div class="carousel-inner">
             <!-- Carousel Item 1 -->
             <div class="carousel-item active">
               <div class="row justify-content-center">
                 <!-- Mentor 1 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_Neil.png"
-                      class="card-img-top mentor-img"
-                      alt="Neil Shah" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_Neil.png" class="card-img-top mentor-img" alt="Neil Shah" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Neil Shah</h5>
                       <p class="card-text">Counter Point Research</p>
                     </div>
                   </div>
                 </div>
                 <!-- Mentor 2 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_Ravi_Sina.png"
-                      class="card-img-top mentor-img"
-                      alt="Ravi Sinha" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_Ravi_Sina.png" class="card-img-top mentor-img" alt="Ravi Sinha" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Ravi Sinha</h5>
                       <p class="card-text">O-Ran Alliance</p>
                     </div>
                   </div>
                 </div>
                 <!-- Mentor 3 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_Aayush.png"
-                      class="card-img-top mentor-img"
-                      alt="Aayush Bhatnagar" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_Aayush.png" class="card-img-top mentor-img" alt="Aayush Bhatnagar" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Aayush Bhatnagar</h5>
                       <p class="card-text">Jio</p>
                     </div>
@@ -1529,46 +1514,35 @@
                 </div>
               </div>
             </div>
+
             <!-- Carousel Item 2 -->
             <div class="carousel-item">
               <div class="row justify-content-center">
                 <!-- Mentor 4 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_mentor.png"
-                      class="card-img-top mentor-img"
-                      alt="Sanjay Kumar" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_mentor.png" class="card-img-top mentor-img" alt="Sanjay Kumar" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Sanjay Kumar</h5>
                       <p class="card-text">TelcoLearn</p>
                     </div>
                   </div>
                 </div>
                 <!-- Mentor 5 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_gopi.png"
-                      class="card-img-top mentor-img"
-                      alt="Gopi Krishna Lakkepuram" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_gopi.png" class="card-img-top mentor-img" alt="Gopi Krishna Lakkepuram" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Gopi Krishna Lakkepuram</h5>
                       <p class="card-text">Hyperleap AI</p>
                     </div>
                   </div>
                 </div>
                 <!-- Mentor 6 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_kiran.png"
-                      class="card-img-top mentor-img"
-                      alt="Kiran Babu" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_kiran.png" class="card-img-top mentor-img" alt="Kiran Babu" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Kiran Babu</h5>
                       <p class="card-text">Rava AI</p>
                     </div>
@@ -1576,46 +1550,35 @@
                 </div>
               </div>
             </div>
+
             <!-- Carousel Item 3 -->
             <div class="carousel-item">
               <div class="row justify-content-center">
                 <!-- Mentor 7 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_rajan.png"
-                      class="card-img-top mentor-img"
-                      alt="Ranjan Relan" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_rajan.png" class="card-img-top mentor-img" alt="Ranjan Relan" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Ranjan Relan</h5>
                       <p class="card-text">AgentAnalytics.AI</p>
                     </div>
                   </div>
                 </div>
                 <!-- Mentor 8 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_pushkar.png"
-                      class="card-img-top mentor-img"
-                      alt="Pushkar Apte" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_pushkar.png" class="card-img-top mentor-img" alt="Pushkar Apte" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Pushkar Apte</h5>
                       <p class="card-text">Qualcomm India Pvt. Ltd.</p>
                     </div>
                   </div>
                 </div>
                 <!-- Mentor 9 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
                   <div class="card h-100 text-center">
-                    <img
-                      src="./assets/mentors/medium_rajesh.png"
-                      class="card-img-top mentor-img"
-                      alt="Rajesh Kumar Pathak" />
-                    <div
-                      class="card-body d-flex flex-column align-items-center">
+                    <img src="./assets/mentors/medium_rajesh.png" class="card-img-top mentor-img" alt="Rajesh Kumar Pathak" />
+                    <div class="card-body d-flex flex-column align-items-center">
                       <h5 class="card-title">Rajesh Kumar Pathak</h5>
                       <p class="card-text">Bharat 6G Alliance</p>
                     </div>
@@ -1624,46 +1587,22 @@
               </div>
             </div>
           </div>
+
           <!-- Carousel Controls -->
-          <a
-            class="carousel-control-prev"
-            href="#mentorsCarousel"
-            role="button"
-            data-bs-slide="prev">
-            <span
-              class="carousel-control-prev-icon"
-              aria-hidden="true"></span>
+          <!-- <a class="carousel-control-prev" href="#mentorsCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </a>
-          <a
-            class="carousel-control-next"
-            href="#mentorsCarousel"
-            role="button"
-            data-bs-slide="next">
-            <span
-              class="carousel-control-next-icon"
-              aria-hidden="true"></span>
+          <a class="carousel-control-next" href="#mentorsCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-          </a>
+          </a> -->
+
           <!-- Carousel Indicators -->
           <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#mentorsCarousel"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"></button>
-            <button
-              type="button"
-              data-bs-target="#mentorsCarousel"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
-            <button
-              type="button"
-              data-bs-target="#mentorsCarousel"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#mentorsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mentorsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mentorsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
         </div>
       </div>
