@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "To reset your password, please click on the following link: " . $resetLink;
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: swamy.vitasoft@gmail.com" . "\r\n";
-        $headers .= "Reply-To: swamy.vitasoft@gmail.com" . "\r\n";
+        $headers .= "From: 5g6ghack24@tcoe.in" . "\r\n";
+        $headers .= "Reply-To: 5g6ghack24@tcoe.in" . "\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
 
         if (mail($email, $subject, $message, $headers)) {

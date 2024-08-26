@@ -50,10 +50,10 @@
           <li class="nav-item">
             <a class="nav-link" href="#meet-our-mentors">Mentors</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
           <li class="nav-item">
             <a class="nav-link" href="#prize">Prize Money</a>
           </li>
+          <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact Us</a>
           </li>
@@ -496,7 +496,7 @@
           </button> -->
 
           <!-- Carousel indicators -->
-          <div class="carousel-indicators position-relative mt-4">
+          <div class="carousel-indicators position-relative mt-0">
             <button
               type="button"
               data-bs-target="#problemStatementsCarousel"
@@ -1460,7 +1460,7 @@
             <div class="card not-eligible-card">
               <div class="card-body">
                 <h3 class="card-title">Employees of DoT, IMC, DCIS</h3>
-                <p class="card-text">NOT ELIGIBLE</p>
+                <p class="card-text text-danger">NOT ELIGIBLE</p>
               </div>
             </div>
           </div>
@@ -1468,7 +1468,7 @@
             <div class="card not-eligible-card">
               <div class="card-body">
                 <h3 class="card-title">Selected in Previous 5G Hackathon</h3>
-                <p class="card-text">NOT ELIGIBLE</p>
+                <p class="card-text text-danger">NOT ELIGIBLE</p>
               </div>
             </div>
           </div>
@@ -1675,12 +1675,10 @@
               aria-labelledby="headingOne"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                <ol>
-                  <li>
-                    Through the online portal -
+                  <span>
+                    A. Through the online portal -
                     https://5g6g-hackathon2024.tcoe.in/
-                  </li>
-                </ol>
+                </span>
               </div>
             </div>
           </div>
@@ -1733,9 +1731,7 @@
               aria-labelledby="headingThree"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                <ol>
-                  <li>Only Online</li>
-                </ol>
+                  <span>A. Only Online</span>
               </div>
             </div>
           </div>
@@ -1758,12 +1754,10 @@
               aria-labelledby="headingFour"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                <ol>
-                  <li>
-                    The event is tentatively scheduled for OCT 15, 2024, and
+                  <span>
+                    A. The event is tentatively scheduled for OCT 15, 2024, and
                     the venue will be updated to the winners
-                  </li>
-                </ol>
+                  </span>
               </div>
             </div>
           </div>
@@ -1787,9 +1781,7 @@
               aria-labelledby="headingFive"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                <ol>
-                  <li>Yes</li>
-                </ol>
+                  <span>A. Yes</span>
               </div>
             </div>
           </div>
@@ -1815,13 +1807,11 @@
               aria-labelledby="headingSix"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                <ol>
-                  <li>
-                    They are required to upload a letter regarding their
+                  <span>
+                    A. They are required to upload a letter regarding their
                     solution that has been forwarded with the approval /
                     consent of HoD / Director of that institution.
-                  </li>
-                </ol>
+                  </span>
               </div>
             </div>
           </div>
@@ -1842,24 +1832,21 @@
             <div class="contact-card p-4">
               <h3 class="contact-location">Hyderabad</h3>
               <p><strong>Srinath Reddy</strong></p>
-              <p>info@tcoe.in</p>
-              <p>9246818843</p>
+              <p>5g6ghack24@tcoe.in</p>
             </div>
           </div>
           <div class="col-md-4 mb-4">
             <div class="contact-card p-4">
               <h3 class="contact-location">Delhi</h3>
-              <p><strong>Srinath Reddy2</strong></p>
-              <p>info@tcoe.in</p>
-              <p>9246818843</p>
+              <p><strong>Srinath Reddy</strong></p>
+              <p>5g6ghack24@tcoe.in</p>
             </div>
           </div>
           <div class="col-md-4 mb-4">
             <div class="contact-card p-4">
               <h3 class="contact-location">Bangalore</h3>
               <p><strong>Srinath Reddy</strong></p>
-              <p>info@tcoe.in</p>
-              <p>9246818843</p>
+              <p>5g6ghack24@tcoe.in</p>
             </div>
           </div>
         </div>
