@@ -36,7 +36,7 @@ if (isset($_POST['problemStatementValue'])) {
   <header
     class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
     <div class="container-fluid" id="home">
-      <a class="navbar-brand" href="#home">
+      <a class="navbar-brand" href="participant">
         <img
           src="./assets/images/Tcoe_logo.jpg"
           alt="Logo"
@@ -229,29 +229,35 @@ if (isset($_POST['problemStatementValue'])) {
                         name="industry"
                         required>
                         <option value="" disabled selected>Select</option>
-                        <option value="">AgriTech & Livestock</option>
-                        <option value="">
+                        <option value="AgriTech & Livestock">AgriTech & Livestock</option>
+                        <option value="Healthcare, Education & Governance">
                           Healthcare, Education & Governance
                         </option>
-                        <option value="Startup">
+                        <option value="Environment, Public Safety & Disaster Management">
                           Environment, Public Safety & Disaster Management
                         </option>
-                        <option value="">
+                        <option value="Enterprise transformation, Industry 4.0">
                           Enterprise transformation, Industry 4.0
                         </option>
-                        <option value="">
+                        <option value="Smart Cities & Infrastructure">
                           Smart Cities & Infrastructure
                         </option>
-                        <option value="">Cyber Security</option>
-                        <option value="">Banking, Finance & Insurance</option>
-                        <option value="">Logistics & Transportation</option>
-                        <option value="">Multimedia & Broadcast</option>
-                        <option value="">Satellite</option>
-                        <option value="">Others- Annexure</option>
+                        <option value="Cyber Security">Cyber Security</option>
+                        <option value="Banking, Finance & Insurance">Banking, Finance & Insurance</option>
+                        <option value="Logistics & Transportation">Logistics & Transportation</option>
+                        <option value="Multimedia & Broadcast">Multimedia & Broadcast</option>
+                        <option value="Satellite">Satellite</option>
+                        <option value="Others- Annexure">Others- Annexure</option>
                       </select>
                     </div>
                   </div>
                 </div>
+                <input
+                  type="hidden"
+                  id="problemsStatement"
+                  name="problemsStatement"
+                  class="form-control" value="<?= $problemStatementValue ?>"
+                  required />
                 <div class="row justify-content">
                   <div class="col">
                     <div class="form-group mb-3">
@@ -344,17 +350,17 @@ if (isset($_POST['problemStatementValue'])) {
                         name="industry"
                         required>
                         <option value="" disabled selected>Select</option>
-                        <option value="">TRL9 Operations</option>
-                        <option value="">TRL8 Active Commissioning</option>
-                        <option value="">TRL7 Inactive Commissioning</option>
+                        <option value="TRL9 Operations">TRL9 Operations</option>
+                        <option value="TRL8 Active Commissioning">TRL8 Active Commissioning</option>
+                        <option value="TRL7 Inactive Commissioning">TRL7 Inactive Commissioning</option>
                         <option value="RL6 Large Scale">
                           TRL6 Large Scale
                         </option>
-                        <option value="RL6 Pilot Scale">
+                        <option value="TRL5 Pilot Scale">
                           TRL5 Pilot Scale
                         </option>
-                        <option value="">TRL4 Bench Scale Research</option>
-                        <option value="">TRL3 Proof of Concept</option>
+                        <option value="TRL4 Bench Scale Research">TRL4 Bench Scale Research</option>
+                        <option value="TRL3 Proof of Concept">TRL3 Proof of Concept</option>
                       </select>
                     </div>
                   </div>

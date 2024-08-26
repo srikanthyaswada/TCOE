@@ -38,7 +38,7 @@ $uniqueId = $_SESSION['uniqueId'];
 <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="participant">
                 <img
                     src="./assets/images/Tcoe_logo.jpg"
                     alt="Logo"

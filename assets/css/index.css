@@ -66,7 +66,8 @@ body {
 /* Problem Statements Section */
 
 #problem-statements {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
+  background: url(../images/bg3.png) repeat !important;
   padding: 3rem 0;
   position: relative;
 }
@@ -300,7 +301,8 @@ body {
 
 /* mentors */
 #meet-our-mentors {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
+  background: url(../images/bg3.png) repeat !important;
   padding: 3rem 0;
   position: relative;
 }
@@ -461,7 +463,8 @@ body {
 }
 
 #contact {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
+  background: url(../images/bg3.png) repeat !important;
   padding: 5rem 0;
 }
 

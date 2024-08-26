@@ -32,7 +32,7 @@ if (!isset($_SESSION['uniqueId'])) {
 <body>
   <div class="">
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-      <a class="navbar-brand p-0" href="#">
+      <a class="navbar-brand p-0" href="participant">
         <img
           src="./assets/images/Tcoe_logo.jpg"
           class="logo ms-5 p-0"
@@ -161,7 +161,7 @@ if (!isset($_SESSION['uniqueId'])) {
     </section>
 
     <!-- Problem Statements Section -->
-    <section id="problem-statements" class="bg-white py-5">
+    <section id="problem-statements" class="py-5">
       <div class="container-fluid">
         <div class="text-center mb-5">
           <h2 class="section-heading">Problem Statements</h2>
@@ -183,13 +183,13 @@ if (!isset($_SESSION['uniqueId'])) {
                     <div class="card-body d-flex flex-column">
                       <h5 class="card-title">
                         Suo Moto
-                        <span class="text-white">Suo Moto Suo Moto Suo Moto Suo Moto</span>
+                        <span class="text-white">Suo Moto</span>
                       </h5>
                       <div class="d-flex justify-content-between mt-auto">
                         <button
                           class="btn btn-primary"
                           data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="Suo Moto Suo Moto Suo Moto Suo Moto">
+                          data-bs-target="#applyModal" data-user-name="Suo Moto">
                           Apply Now
                         </button>
                         <a
@@ -538,15 +538,33 @@ if (!isset($_SESSION['uniqueId'])) {
               data-bs-dismiss="modal"
               aria-label="Close"></button>
           </div>
-          <div class="modal-body text-center">
-            <h3>Problem Statement</h3>
-            <p>Suo Moto</p>
+          <div class="modal-body">
+            <h3 class="text-center">Problem Statement</h3>
+            <p class="text-center">Suo Moto</p>
             <br />
-            <h3>Possible Approach / Simplified Statement</h3>
-            <p>
+            <h3 class="text-center">Possible Approach / Simplified Statement</h3>
+            <p class="text-center">
               Solution using 5G, 6G and Emerging Technologies for the
               following Application verticals:
             </p>
+            <ul>
+              <li>Automobile/ Transport/Logistics</li>
+              <li>Industry 4.0</li>
+              <li>Tourism</li>
+              <li>Enterprise & Emergency Communication</li>
+              <li>Smart Cities</li>
+              <li>Railways</li>
+              <li>Mining/ Ports/ Airports</li>
+              <li>Power</li>
+              <li>Rural & Remote Communication</li>
+              <li>FinTech</li>
+              <li>Water Management</li>
+              <li>Sports</li>
+              <li>Cyber Security, Quantum communications and
+                security</li>
+              <li>Environment, Public Safety & Disaster
+                Management</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1466,7 +1484,7 @@ if (!isset($_SESSION['uniqueId'])) {
     </section>
 
     <!-- Mentors Section -->
-    <section id="meet-our-mentors" class="bg-white">
+    <section id="meet-our-mentors">
       <div class="container-fluid">
         <div class="text-center">
           <h2 class="section-heading">Meet Our Mentors</h2>
@@ -1621,7 +1639,7 @@ if (!isset($_SESSION['uniqueId'])) {
 
 
     <!-- FAQs Section -->
-    <section id="faqs" class="bg-white">
+    <section id="faqs">
       <div class="container-fluid">
         <div class="text-center">
           <h2 class="section-heading mb-4">FAQs</h2>
@@ -1807,7 +1825,7 @@ if (!isset($_SESSION['uniqueId'])) {
     </section>
 
     <!-- Contact Us Section -->
-    <section id="contact" class="bg-light py-5">
+    <section id="contact" class="py-5">
       <div class="container-fluid text-center">
         <h2 class="section-heading mb-4">Contact Us</h2>
         <p class="lead mb-5">

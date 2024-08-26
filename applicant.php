@@ -15,6 +15,7 @@ $state = $_POST['state'];
 $postalAddress = $_POST['postalAddress'];
 $applying = $_POST['applying'];
 $industry = $_POST['industry'];
+$problemsStatement = $_POST['problemsStatement'];
 $website = $_POST['website'];
 
 // Common form data
@@ -102,8 +103,8 @@ $shareholding = $shareholdingPath;
 $incorporation = $incorporationPath;
 $idProof = $idProofPath;
 // Insert data into the database
-$sql = "INSERT INTO applicant (applicantName, organizationName, contactNumber, email, city, state, postalAddress, applying, industry, website, status, createAt, uniqueId)
-        VALUES ('$applicantName', '$organizationName', '$contactNumber', '$email', '$city', '$state', '$postalAddress', '$applying', '$industry', '$website', '$status', '$createAt', '$uniqueId')";
+$sql = "INSERT INTO applicant (applicantName, organizationName, contactNumber, email, city, state, postalAddress, applying, industry, problemsStatement, website, status, createAt, uniqueId)
+        VALUES ('$applicantName', '$organizationName', '$contactNumber', '$email', '$city', '$state', '$postalAddress', '$applying', '$industry', '$problemsStatement', '$website', '$status', '$createAt', '$uniqueId')";
 
 $sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo, technologyLevel, proofPoC, describeProduct, productPatent, patentDetails, similarProduct, similarProductFile, status, createAt, uniqueId) VALUES ('$domain', '$product', '$productFile', '$presentationVideo', '$technologyLevel', '$proofPoC', '$describeProduct', '$productPatent', '$patentDetails', '$similarProduct', '$similarProductFile', '$status', '$createAt', '$uniqueId')";
 
