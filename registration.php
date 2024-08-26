@@ -12,9 +12,11 @@ $categoryName = $_POST['categoryName'];
 $status = 1;
 $createAt = date("Y-m-d H:i:s");
 
+$randomNumber = mt_rand(100000, 999999);
+
 // Insert data into database
-$sql = "INSERT INTO users (fullname, email, password, categoryType, categoryName, status, createAt) 
-        VALUES ('$fullname', '$email', '$password', '$categoryType', '$categoryName', '$status', '$createAt')";
+$sql = "INSERT INTO users (fullname, email, password, categoryType, categoryName, status, createAt, access_code, reset_token, reset_expiry) 
+        VALUES ('$fullname', '$email', '$password', '$categoryType', '$categoryName', '$status', '$createAt', '$randomNumber', Null, Null)";
 
 if ($conn->query($sql) === TRUE) {
     $folderName = 'assets/users/' . $conn->insert_id;
@@ -25,7 +27,6 @@ if ($conn->query($sql) === TRUE) {
         }
     }
 
-    // $randomNumber = mt_rand(100000, 999999);
     // $to = $email;
     // $subject = "Registration";
     // $message = "Hello" . $fullname . ",\r\n Your Access Code is " . $randomNumber;
@@ -42,9 +43,9 @@ if ($conn->query($sql) === TRUE) {
     //     echo "<script>alert('Registration successful!...');</script>";
     // }
     echo "<script>alert('Registration successful!...');</script>";
-    echo "<script> window.location.href='home';</script>";
 } else {
     echo "<script>alert(''.$conn->error);</script>";
 }
+echo "<script> window.location.href='home#authModal';</script>";
 
 $conn->close();

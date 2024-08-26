@@ -22,16 +22,15 @@ if ($sql->num_rows > 0) {
     if (password_verify($password, $hashed_password)) {
         // Password is correct, start a session
         $_SESSION['uniqueId'] = $uniqueId;
-        echo "Login successful! Welcome, " . $email;
-        // Redirect to a protected page or dashboard
-        header("Location: participant");
-        exit();
+        echo "<script>alert('Login successful! Welcome,');</script>";
+        echo "<script> window.location.href='participant';</script>";
     } else {
-        echo "Invalid email or password!";
+        echo "<script>alert('Invalid email or password!');</script>";
+        echo "<script> window.location.href='home#authModal';</script>";
     }
 } else {
-    echo "Invalid email or password!";
+    echo "<script>alert('Invalid email or password!');</script>";
+    echo "<script> window.location.href='home#authModal';</script>";
 }
-
 $sql->close();
 $conn->close();

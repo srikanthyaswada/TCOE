@@ -63,10 +63,9 @@ $uniqueId = $_SESSION['uniqueId'];
                     <ul
                         class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="profileDropdown">
-                        <li><a class="dropdown-item" href="participant">My Dashboard</a></li>
+                        <li><a class="dropdown-item" href="participant">Home</a></li>
                         <li><a class="dropdown-item" href="profile">Profile</a></li>
-                        <li><a class="dropdown-item" href="application">Application</a></li>
-                        <li><a class="dropdown-item" href="applicantView">View</a></li>
+                        <li><a class="dropdown-item" href="applicantView">My Application</a></li>
                         <li><a class="dropdown-item" href="logout">Logout</a></li>
                     </ul>
                 </li>
@@ -93,20 +92,20 @@ $uniqueId = $_SESSION['uniqueId'];
             // Check if a record was found
             if ($result->num_rows > 0) {
                 // Fetch the data
-                while($row = $result->fetch_assoc()) {
-                // Display the data
-                echo "Applicant Name: " . $row['applicantName'] . "<br>";
-                echo "Organization Name: " . $row['organizationName'] . "<br>";
-                echo "Contact Number: " . $row['contactNumber'] . "<br>";
-                echo "Email: " . $row['email'] . "<br>";
-                echo "City: " . $row['city'] . "<br>";
-                echo "State: " . $row['state'] . "<br>";
-                echo "Postal Address: " . $row['postalAddress'] . "<br>";
-                echo "Applying For: " . $row['applying'] . "<br>";
-                echo "Industry: " . $row['industry'] . "<br>";
-                echo "Website: " . $row['website'] . "<br>";
-                echo "Created At: " . $row['createAt'] . "<br>";
-                echo "<br><br><br>";
+                while ($row = $result->fetch_assoc()) {
+                    // Display the data
+                    echo "Applicant Name: " . $row['applicantName'] . "<br>";
+                    echo "Organization Name: " . $row['organizationName'] . "<br>";
+                    echo "Contact Number: " . $row['contactNumber'] . "<br>";
+                    echo "Email: " . $row['email'] . "<br>";
+                    echo "City: " . $row['city'] . "<br>";
+                    echo "State: " . $row['state'] . "<br>";
+                    echo "Postal Address: " . $row['postalAddress'] . "<br>";
+                    echo "Applying For: " . $row['applying'] . "<br>";
+                    echo "Industry: " . $row['industry'] . "<br>";
+                    echo "Website: " . $row['website'] . "<br>";
+                    echo "Created At: " . $row['createAt'] . "<br>";
+                    echo "<br><br><br>";
                 }
             } else {
                 echo "No record found for ID: " . $id;

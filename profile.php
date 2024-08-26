@@ -59,10 +59,9 @@ $uniqueId = $_SESSION['uniqueId'];
                     <ul
                         class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="profileDropdown">
-                        <li><a class="dropdown-item" href="participant">My Dashboard</a></li>
+                        <li><a class="dropdown-item" href="participant">Home</a></li>
                         <li><a class="dropdown-item" href="profile">Profile</a></li>
-                        <li><a class="dropdown-item" href="application">Application</a></li>
-                        <li><a class="dropdown-item" href="applicantView">View</a></li>
+                        <li><a class="dropdown-item" href="applicantView">My Application</a></li>
                         <li><a class="dropdown-item" href="logout">Logout</a></li>
                     </ul>
                 </li>
@@ -70,7 +69,7 @@ $uniqueId = $_SESSION['uniqueId'];
         </div>
     </header>
     <div class="row g-0">
-        <div class="col-sm-6 m-auto text-primary">
+        <div class="col-sm-6 m-auto">
             <?php
             $sql = "SELECT * FROM users WHERE uniqueId = ?";
             $stmt = $conn->prepare($sql);
@@ -91,6 +90,20 @@ $uniqueId = $_SESSION['uniqueId'];
                 echo "<script>alert('No record found for ID');</script>";
             }
             ?>
+
+            <form method="post" action="changepassword.php">
+                <input type="hidden" name="uniqueId" value="<?php echo $uniqueId; ?>">
+                <div class="mt-2">
+                    <label for="password">Enter your old password:</label>
+                    <input type="password" class="form-control" placeholder="Old Password" name="password1" id="password1" required>
+                </div>
+                <div class="mt-2">
+                    <label for="password">Enter your new password:</label>
+                    <input type="password" class="form-control" placeholder="New Password" name="password" id="password" required>
+                </div>
+                <input type="submit" class="btn btn-primary mt-3" value="Change Password">
+            </form>
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
