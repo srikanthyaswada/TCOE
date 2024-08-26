@@ -27,22 +27,40 @@ if ($conn->query($sql) === TRUE) {
         }
     }
 
-    // $to = $email;
-    // $subject = "Registration";
+    $participantName = $fullname;
+    $to = $email;
+    $subject = "Welcome to the 5G/6G Hackathon!";
     // $message = "Hello" . $fullname . ",\r\n Your Access Code is " . $randomNumber;
-    // $headers = "MIME-Version: 1.0" . "\r\n";
-    // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    // $headers .= "From: swamy.vitasoft@gmail.com" . "\r\n";
-    // $headers .= "Reply-To: swamy.vitasoft@gmail.com" . "\r\n";
-    // $headers .= "X-Mailer: PHP/" . phpversion();
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: 5g6ghack24@tcoe.in" . "\r\n";
+    $headers .= "Reply-To: 5g6ghack24@tcoe.in" . "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+
+    $message = "
+    <html>
+    <head>
+    <title>Welcome to the 5G/6G Hackathon!</title>
+    </head>
+    <body>
+    <p>Dear {$participantName},</p>
+    <p>Welcome aboard!</p>
+    <p>
+        Congratulations on registering for the <strong>5G/6G Hackathon</strong> managed by TCoE by DoT, MoC, GoI, a platform where innovation meets technology. We’re thrilled to have you join us in pushing the boundaries of 5G and 6G technologies.
+    </p>
+    <br>
+    <p>Thank you,</p>
+    <p>Team - TCoE</p>
+    </body>
+    </html>
+    ";
 
     // Send the email
-    // if (mail($to, $subject, $message, $headers)) {
-    //     echo "<script>alert('Registration successful!...');</script>";
-    // } else {
-    //     echo "<script>alert('Registration successful!...');</script>";
-    // }
-    echo "<script>alert('Registration successful!...');</script>";
+    if (mail($to, $subject, $message, $headers)) {
+        echo "<script>alert('Welcome email sent successfully');</script>";
+    } else {
+        echo "<script>alert('Failed to send the welcome email.');</script>";
+    }
 } else {
     echo "<script>alert(''.$conn->error);</script>";
 }

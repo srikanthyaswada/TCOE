@@ -110,8 +110,56 @@ $sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo,
 
 $sql2 = "INSERT INTO documents (shareholding, incorporation, idProof, status, createAt, uniqueId) VALUES ('$shareholding', '$incorporation', '$idProof', '$status', '$createAt', '$uniqueId')";
 if ($conn->query($sql) === TRUE && $conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
+
+    $to = $email;
+    $subject = 'Application Submission for 5G/6G Hackathon';
+    $organizerName = $organizationName;
+    $teamName = $applicantName;
+    $projectTitle = $problemsStatement;
+    $teamEmail = $email;
+    $teamPhone = $contactNumber;
+
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: 5g6ghack24@tcoe.in" . "\r\n";
+    $headers .= "Reply-To: 5g6ghack24@tcoe.in" . "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+
+    // Email body
+    $message = "
+<html>
+<head>
+  <title>Application Submission for 5G/6G Hackathon</title>
+</head>
+<body>
+  <p>Dear {$organizerName},</p>
+  <p>We are excited to submit our application for the <strong>5G/6G Hackathon</strong>.</p>
+  <p><strong>Team Details:</strong></p>
+  <ul>
+    <li><strong>Applicant Name:</strong> {$teamName}</li>
+    <li><strong>Problem Statement:</strong> {$projectTitle}</li>
+    <li><strong>Contact Information:</strong></li>
+    <ul>
+      <li><strong>Email:</strong> {$teamEmail}</li>
+      <li><strong>Phone:</strong> {$teamPhone}</li>
+    </ul>
+  </ul>
+  <p>We will let you know once your application gets shortlisted. Thank you for your patience.</p>
+  <br>
+  <p>Thank you,</p>
+  <p>Team – TCoE</p>
+</body>
+</html>
+";
+
+    if (mail($email, $subject, $message, $headers)) {
+        echo "<script>alert('Application submission email sent successfully to {$organizerName}.');</script>";
+    } else {
+        echo "<script>alert('Failed to send the application submission email.');</script>";
+    }
+
     // Redirect to another page after successful submission
-    echo "<script>alert('Please note: Once Application is submitted user cant Edit CTA: Submit');</script>";
+    // echo "<script>alert('Please note: Once Application is submitted user cant Edit CTA: Submit');</script>";
 } else {
     echo "<script>alert(''.$conn->error);</script>";
 }
