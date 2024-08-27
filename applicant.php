@@ -114,28 +114,28 @@ $idProof = $idProofPath;
 // Insert data into the database
 $sql = "INSERT INTO applicant (applicantName, organizationName, contactNumber, email, city, state, postalAddress, applying, industry, otherindustry, problemsStatement, applicationVerticals, website, status, createAt, uniqueId)
         VALUES ('$applicantName', '$organizationName', '$contactNumber', '$email', '$city', '$state', '$postalAddress', '$applying', '$industry', '$otherindustry', '$problemsStatement', '$applicationVerticals', '$website', '$status', '$createAt', '$uniqueId')";
+if ($conn->query($sql) === TRUE) {
+  $uniqueApplicant = $conn->insert_id;
 
-$sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo, technologyLevel, proofPoC, describeProduct, productPatent, patentDetails, similarProduct, similarProductFile, status, createAt, uniqueId) VALUES ('$domain', '$product', '$productFile', '$presentationVideo', '$technologyLevel', '$proofPoC', '$describeProduct', '$productPatent', '$patentDetails', '$similarProduct', '$similarProductFile', '$status', '$createAt', '$uniqueId')";
+  $sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo, technologyLevel, proofPoC, describeProduct, productPatent, patentDetails, similarProduct, similarProductFile, status, createAt, uniqueId, uniqueApplicant) VALUES ('$domain', '$product', '$productFile', '$presentationVideo', '$technologyLevel', '$proofPoC', '$describeProduct', '$productPatent', '$patentDetails', '$similarProduct', '$similarProductFile', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
+  $sql2 = "INSERT INTO documents (shareholding, incorporation, idProof, status, createAt, uniqueId, uniqueApplicant) VALUES ('$shareholding', '$incorporation', '$idProof', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
+  if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
+    $to = $email;
+    $subject = 'Application Submission for 5G/6G Hackathon';
+    $organizerName = $organizationName;
+    $teamName = $applicantName;
+    $projectTitle = $problemsStatement;
+    $teamEmail = $email;
+    $teamPhone = $contactNumber;
 
-$sql2 = "INSERT INTO documents (shareholding, incorporation, idProof, status, createAt, uniqueId) VALUES ('$shareholding', '$incorporation', '$idProof', '$status', '$createAt', '$uniqueId')";
-if ($conn->query($sql) === TRUE && $conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: 5g6ghack24@tcoe.in" . "\r\n";
+    $headers .= "Reply-To: 5g6ghack24@tcoe.in" . "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
 
-  $to = $email;
-  $subject = 'Application Submission for 5G/6G Hackathon';
-  $organizerName = $organizationName;
-  $teamName = $applicantName;
-  $projectTitle = $problemsStatement;
-  $teamEmail = $email;
-  $teamPhone = $contactNumber;
-
-  $headers = "MIME-Version: 1.0" . "\r\n";
-  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-  $headers .= "From: 5g6ghack24@tcoe.in" . "\r\n";
-  $headers .= "Reply-To: 5g6ghack24@tcoe.in" . "\r\n";
-  $headers .= "X-Mailer: PHP/" . phpversion();
-
-  // Email body
-  $message = "
+    // Email body
+    $message = "
 <html>
 <head>
   <title>Application Submission for 5G/6G Hackathon</title>
@@ -161,14 +161,15 @@ if ($conn->query($sql) === TRUE && $conn->query($sql1) === TRUE && $conn->query(
 </html>
 ";
 
-  if (mail($email, $subject, $message, $headers)) {
-    echo "<script>alert('Application submission email sent successfully to {$organizerName}.');</script>";
-  } else {
-    echo "<script>alert('Failed to send the application submission email.');</script>";
-  }
+    if (mail($email, $subject, $message, $headers)) {
+      echo "<script>alert('Application submission email sent successfully to {$organizerName}.');</script>";
+    } else {
+      echo "<script>alert('Failed to send the application submission email.');</script>";
+    }
 
-  // Redirect to another page after successful submission
-  // echo "<script>alert('Please note: Once Application is submitted user cant Edit CTA: Submit');</script>";
+    // Redirect to another page after successful submission
+    // echo "<script>alert('Please note: Once Application is submitted user cant Edit CTA: Submit');</script>";
+  }
 } else {
   echo "<script>alert(''.$conn->error);</script>";
 }
