@@ -1,8 +1,6 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['uniqueId'])) {
-  // User is not logged in, redirect to login page
   header("Location: home");
   exit();
 }

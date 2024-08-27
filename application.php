@@ -1,6 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['uniqueId'])) {
+  header("Location: home");
+  exit();
+}
+
 $problemStatementValue = "5G & 6G HACKATHON-2024 Idea Submission";
-if (isset($_POST['problemStatementValue'])) {
+if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStatementValue']))) {
   $problemStatementValue = $_POST['problemStatementValue'];
 }
 ?>
