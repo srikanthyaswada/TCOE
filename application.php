@@ -311,7 +311,7 @@ if (isset($_POST['problemStatementValue'])) {
               <label for="productFile" class="p-2"><span style="color: red">*</span>Upload the note on
                 Technical Details or Product/Solution
               </label>
-              <input type="file" id="productFile" name="productFile" class="form-control" required />
+              <input type="file" id="productFile" name="productFile" class="form-control" required accept=".pdf,.doc,.docx" />
             </div>
           </div>
         </div>
@@ -321,7 +321,7 @@ if (isset($_POST['problemStatementValue'])) {
               <label for="presentationVideo" class="p-2"><span style="color: red">*</span>Please provide the
                 Power Point Presentation /two-minute product
                 video</label>
-              <input type="file" id="presentationVideo" name="presentationVideo" class="form-control" required />
+              <input type="file" id="presentationVideo" name="presentationVideo" class="form-control" required accept=".pdf,.mp4,.ppt,.pptx" />
             </div>
           </div>
         </div>
@@ -352,7 +352,7 @@ if (isset($_POST['problemStatementValue'])) {
             <div class="form-group mb-3">
               <label for="proofPoC" class="p-2"><span style="color: red">*</span>Proof for PoC
                 (Video, Picture etc)</label>
-              <input type="file" id="proofPoC" name="proofPoC" class="form-control" required />
+              <input type="file" id="proofPoC" name="proofPoC" class="form-control" required accept=".pdf,.mp4,.jpg,.jpeg,.png" />
             </div>
           </div>
         </div>
@@ -403,7 +403,7 @@ if (isset($_POST['problemStatementValue'])) {
               <label for="similarProductFile" class="p-2">If yes, does your
                 proposed product have advantage over other existing
                 solutions</label>
-              <input type="File" id="similarProductFile" name="similarProductFile" class="form-control" />
+              <input type="File" id="similarProductFile" name="similarProductFile" class="form-control" accept=".pdf,.ppt,.pptx" />
             </div>
           </div>
         </div>
@@ -426,7 +426,7 @@ if (isset($_POST['problemStatementValue'])) {
               <label for="shareholding" class="p-2"><span style="color: red">*</span>51% shareholding by
                 Indian citizen or Indian Entity (In case of
                 Startups)</label>
-              <input type="file" id="shareholding" name="shareholding" class="form-control" required />
+              <input type="file" id="shareholding" name="shareholding" class="form-control" required accept=".pdf" />
             </div>
           </div>
         </div>
@@ -435,7 +435,7 @@ if (isset($_POST['problemStatementValue'])) {
             <div class="form-group mb-3">
               <label for="incorporation" class="p-2"><span style="color: red">*</span>Incorporation
                 Certificate (in case of Startups)</label>
-              <input type="file" id="incorporation" name="incorporation" class="form-control" required />
+              <input type="file" id="incorporation" name="incorporation" class="form-control" required accept=".pdf" />
             </div>
           </div>
         </div>
@@ -444,7 +444,7 @@ if (isset($_POST['problemStatementValue'])) {
             <div class="form-group mb-3">
               <label for="idProof" class="p-2"><span style="color: red">*</span>ID Proof/ passport
                 of Applicant</label>
-              <input type="file" id="idProof" name="idProof" class="form-control" required />
+              <input type="file" id="idProof" name="idProof" class="form-control" required accept=".pdf" />
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ $uniqueId = $_SESSION['uniqueId'];
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Application</title>
+    <title>My Application</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet" />
@@ -46,8 +46,17 @@ $uniqueId = $_SESSION['uniqueId'];
             </ul>
         </div>
     </header>
-    <div class="container mt-5">
+    <div class="container mt-0">
         <div class="row justify-content-center">
+            <div class="col-lg-9 col-md-9">
+                <h2 class="">My Application</h2>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <form action="application" method="post">
+                    <input type="hidden" class="form-control" id="problemStatementValue" name="problemStatementValue" value="5G Enabled Consoles/Devices For Students" readonly>
+                    <button type="submit" class="btn btn-primary text-white">Add More Problem Statements</button>
+                </form>
+            </div>
             <div class="col-lg-6 col-md-6">
                 <?php
                 $sql = "SELECT a.*,t.*,d.* FROM applicant a JOIN technical t ON a.uniqueApplicant = t.uniqueApplicant JOIN documents d ON a.uniqueApplicant = d.uniqueApplicant WHERE a.uniqueId = ?";
@@ -81,13 +90,13 @@ $uniqueId = $_SESSION['uniqueId'];
                                     <div class="accordion-body">
                                         <div class="row mb-2">
                                             <div class="col-6">
-                                                <div class="col-6"><label>Name</label></div>
+                                                <div class="col-6"><label class="h5">Name</label></div>
                                                 <div class="col-6">
                                                     <p><?= $row['applicantName'] ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="col-6"><label>Email</label></div>
+                                                <div class="col-6"><label class="h5">Email</label></div>
                                                 <div class="col-6">
                                                     <p><?= $row['email'] ?></p>
                                                 </div>
@@ -95,13 +104,13 @@ $uniqueId = $_SESSION['uniqueId'];
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6">
-                                                <div class="col-6"><label>Phone</label></div>
+                                                <div class="col-6"><label class="h5">Phone</label></div>
                                                 <div class="col-6">
                                                     <p><?= $row['contactNumber'] ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="col-6"><label>Organization</label></div>
+                                                <div class="col-6"><label class="h5">Organization</label></div>
                                                 <div class="col-6">
                                                     <p><?= $row['organizationName'] ?></p>
                                                 </div>
@@ -109,7 +118,7 @@ $uniqueId = $_SESSION['uniqueId'];
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-12">
-                                                <div class="col-12"><label>Postal Address</label></div>
+                                                <div class="col-12"><label class="h5">Postal Address</label></div>
                                                 <div class="col-12">
                                                     <p><?= $row['postalAddress'] ?><br>
                                                         <?= $row['city'] ?>-<?= $row['state'] ?></p>
@@ -118,13 +127,13 @@ $uniqueId = $_SESSION['uniqueId'];
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6">
-                                                <div class="col-6"><label>Applying For</label></div>
+                                                <div class="col-6"><label class="h5">Applying For</label></div>
                                                 <div class="col-6">
                                                     <p><?= $row['applying'] ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="col-6"><label>Industry</label></div>
+                                                <div class="col-6"><label class="h5">Industry</label></div>
                                                 <div class="col-6">
                                                     <p><?= $row['industry'] ?></p>
                                                 </div>
@@ -132,13 +141,13 @@ $uniqueId = $_SESSION['uniqueId'];
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6">
-                                                <div class="col-6"><label>Industry Vertical</label></div>
+                                                <div class="col-6"><label class="h5">Industry Vertical</label></div>
                                                 <div class="col-6">
                                                     <p>Environment</p>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="col-6"><label>Website</label></div>
+                                                <div class="col-6"><label class="h5">Website</label></div>
                                                 <div class="col-6">
                                                     <p><?= $row['website'] ?></p>
                                                 </div>
@@ -167,79 +176,71 @@ $uniqueId = $_SESSION['uniqueId'];
                                     data-bs-parent="#applicationAccordion">
                                     <div class="accordion-body">
                                         <div class="row mb-2">
-                                            <div class=""><label>Domain</label></div>
+                                            <div class=""><label class="h5">Domain</label></div>
                                             <div class="">
                                                 <p><?= $row['domain'] ?></p>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class=""><label>Technical Details</label></div>
+                                            <div class=""><label class="h5">Brief about your product/solution</label></div>
                                             <div class="">
-                                                <p><?= $row[''] ?></p>
+                                                <p><?= $row['product'] ?></p>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class=""><label>Presentation or Video</label></div>
+                                            <div class=""><label class="h5">Technical Details or Product/Solution</label></div>
                                             <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="">
-                                                <label>Stage of Product Readiness</label>
-                                            </div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label>Brief about Product</label></div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label>Proof of POC</label></div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label>Describe Solution</label></div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label>Patent Filed</label></div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label>Patent Details</label></div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label>Similar Product</label></div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label>Similar Product Details</label></div>
-                                            <div class="">
-                                                <p><?= $row[''] ?></p>
+                                                <p><a href="<?= $row['productFile'] ?>" target="_new" class="text-decoration-none"><?= $row['productFile'] ?></a></p>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="">
-                                                <label>Advantage over similar products</label>
+                                                <label class="h5">Power Point Presentation /two-minute product video</label>
                                             </div>
                                             <div class="">
-                                                <p><?= $row[''] ?></p>
+                                                <p><a href="<?= $row['presentationVideo'] ?>" target="_new" class="text-decoration-none"><?= $row['presentationVideo'] ?></a></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class=""><label class="h5">Technology Readiness Level</label></div>
+                                            <div class="">
+                                                <p><?= $row['technologyLevel'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class=""><label class="h5">Proof of POC</label></div>
+                                            <div class="">
+                                                <p><?= $row['proofPoC'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class=""><label class="h5">Describe Solution</label></div>
+                                            <div class="">
+                                                <p><?= $row['describeProduct'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class=""><label class="h5">Patent Filed</label></div>
+                                            <div class="">
+                                                <p><?= $row['productPatent'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class=""><label class="h5">Patent Details</label></div>
+                                            <div class="">
+                                                <p><?= $row['patentDetails'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class=""><label class="h5">Similar Product</label></div>
+                                            <div class="">
+                                                <p><?= $row['similarProduct'] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class=""><label class="h5">Similar Product Details</label></div>
+                                            <div class="">
+                                                <p><a href="<?= $row['similarProductFile'] ?>" target="_new" class="text-decoration-none"><?= $row['similarProductFile'] ?></a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -265,19 +266,19 @@ $uniqueId = $_SESSION['uniqueId'];
                                     data-bs-parent="#applicationAccordion">
                                     <div class="accordion-body">
                                         <div class="row mb-2">
-                                            <div class=""><label>51% Indian shareholding Proof</label></div>
+                                            <div class=""><label class="h5">51% Indian shareholding Proof</label></div>
                                             <div class="">
                                                 <p><a href="<?= $row['shareholding'] ?>" target="_new" class="text-decoration-none"><?= $row['shareholding'] ?></a></p>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class=""><label>Incorporation Certificate</label></div>
+                                            <div class=""><label class="h5">Incorporation Certificate</label></div>
                                             <div class="">
                                                 <p><a href="<?= $row['incorporation'] ?>" target="_new" class="text-decoration-none"><?= $row['incorporation'] ?></a></p>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class=""><label>Applicant Id Proof</label></div>
+                                            <div class=""><label class="h5">Applicant Id Proof</label></div>
                                             <div class="">
                                                 <p><a href="<?= $row['idProof'] ?>" target="_new" class="text-decoration-none"><?= $row['idProof'] ?></a></p>
                                             </div>
