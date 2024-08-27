@@ -36,13 +36,67 @@ body {
   color: #0056b3;
 }
 
+.btn-violet {
+  background-color: #6a0dad;
+  color: white;
+  width: 100%;
+  border: none;
+}
+
+.btn-violet:hover {
+  background-color: #5c0ea9;
+}
+.nav-tabs .nav-link.active {
+  background-color: #6a0dad;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.nav-tabs .nav-link {
+  color: #6a0dad;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #f8f9fa;
+  margin-right: 0.5rem;
+}
+.nav-tabs .nav-link:hover {
+  background-color: #e9ecef;
+  color: #6a0dad;
+}
+
+.modal-footer .btn-primary {
+  background-color: #6a0dad;
+  border: none;
+  width: 100%;
+}
+.modal-footer .btn-primary:hover {
+  background-color: #5a0a9d;
+  border: none;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-body {
+  padding-top: 0;
+}
 
 .modal-content {
-  border-radius: 0 !important;
+  padding: 20px;
 }
-#applyModal .modal-content,
-#authModal .modal-content {
-  border-radius: 0 !important;
+
+.modal-header .btn-close {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.modal-footer button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
 }
 
 /* Sections */
@@ -298,7 +352,6 @@ body {
   }
 }
 
-
 /* mentors */
 #meet-our-mentors {
   /* background-color: #f8f9fa; */
@@ -420,8 +473,6 @@ body {
   }
 }
 
-
-
 .accordion-button {
   display: flex;
   align-items: center;
@@ -531,7 +582,6 @@ body {
     font-size: 1rem;
   }
 }
-
 
 footer {
   background-color: #ffffff;

@@ -1232,7 +1232,7 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-primary mt-3"
+                class="btn btn-violet mt-3"
                 data-bs-toggle="modal"
                 data-bs-target="#authModal">
                 I Agree
@@ -1283,12 +1283,16 @@
                 </button>
               </li>
             </ul>
-            <div class="tab-content" id="authTabContent">
+            <div class="tab-content mt-3" id="authTabContent">
               <!-- Login Form -->
               <div
-                class="tab-pane fade show active"
+                class="tab-pane fade show active card p-2"
                 id="login"
                 role="tabpanel">
+                <div class="text-center p-1">
+                  <h4>Log in to your Account</h4>
+                  <p>Welcome back! Please enter your details</p>
+                </div>
                 <form action="login.php" method="post">
                   <div class="mb-3">
                     <input
@@ -1308,16 +1312,30 @@
                       name="password"
                       required />
                   </div>
-                  <a type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#forgotModal"> Forgot Password? </a>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3">
+                    <a
+                      type="button"
+                      class="btn btn-link p-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#forgotModal">Forgot Password?</a>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-violet">
                       Login
                     </button>
                   </div>
                 </form>
               </div>
               <!-- Register Form -->
-              <div class="tab-pane fade" id="register" role="tabpanel">
+              <div
+                class="tab-pane fade card p-2"
+                id="register"
+                role="tabpanel">
+                <div class="text-center p-1">
+                  <h4>Create an account</h4>
+                  <p>Start your journey!</p>
+                </div>
                 <form action="registration.php" method="post">
                   <div class="mb-3">
                     <input
@@ -1353,32 +1371,30 @@
                       name="categoryType"
                       required>
                       <option value="" disabled selected>I am</option>
-                      <option value="Student">
-                        Student
-                      </option>
+                      <option value="Student">Student</option>
                       <option value="Startup Professional">
                         Startup Professional
                       </option>
-                      <option value="Academia Professional">
-                        Academia Professional
+                      <option value="Academic Professional">
+                        Academic Professional
                       </option>
                       <option value="Corporate Professional">
                         Corporate Professional
                       </option>
                     </select>
                   </div>
-                  <div class="mb-3" id="category" style="display: none;">
+                  <div class="mb-3">
                     <input
                       type="text"
                       class="form-control"
-                      placeholder=""
+                      placeholder="Organization Name"
                       id="categoryName"
                       name="categoryName"
                       required />
                   </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                      GET STARTED
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-violet">
+                      Get Started
                     </button>
                   </div>
                 </form>
@@ -1388,10 +1404,25 @@
         </div>
       </div>
     </div>
-    <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <form action="forgotpassword.php" method="post">
-          <div class="modal-content">
+
+    <!-- Forgot Password Modal -->
+    <div
+      class="modal fade"
+      id="forgotModal"
+      tabindex="-1"
+      aria-labelledby="forgotModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="forgotModalLabel">Forgot Password</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <form action="forgotpassword.php" method="post">
             <div class="modal-body">
               <div class="mb-3">
                 <input
@@ -1404,11 +1435,13 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Request Password</button>
+
+              <button type="submit" class="btn btn-violet">
+                Request Password
+              </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
     <!-- Eligibility Section -->
@@ -1675,9 +1708,9 @@
               aria-labelledby="headingOne"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                  <span>
-                    A. Through the online portal -
-                    https://5g6g-hackathon2024.tcoe.in/
+                <span>
+                  A. Through the online portal -
+                  https://5g6g-hackathon2024.tcoe.in/
                 </span>
               </div>
             </div>
@@ -1731,7 +1764,7 @@
               aria-labelledby="headingThree"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                  <span>A. Only Online</span>
+                <span>A. Only Online</span>
               </div>
             </div>
           </div>
@@ -1754,10 +1787,10 @@
               aria-labelledby="headingFour"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                  <span>
-                    A. The event is tentatively scheduled for OCT 15, 2024, and
-                    the venue will be updated to the winners
-                  </span>
+                <span>
+                  A. The event is tentatively scheduled for OCT 15, 2024, and
+                  the venue will be updated to the winners
+                </span>
               </div>
             </div>
           </div>
@@ -1781,7 +1814,7 @@
               aria-labelledby="headingFive"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                  <span>A. Yes</span>
+                <span>A. Yes</span>
               </div>
             </div>
           </div>
@@ -1807,11 +1840,11 @@
               aria-labelledby="headingSix"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                  <span>
-                    A. They are required to upload a letter regarding their
-                    solution that has been forwarded with the approval /
-                    consent of HoD / Director of that institution.
-                  </span>
+                <span>
+                  A. They are required to upload a letter regarding their
+                  solution that has been forwarded with the approval /
+                  consent of HoD / Director of that institution.
+                </span>
               </div>
             </div>
           </div>
