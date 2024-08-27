@@ -23,7 +23,7 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/application.css" />
+  <link rel="stylesheet" href="assets/css/application.css" />
 </head>
 
 <body>
@@ -478,56 +478,9 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
   </div>
   </form>
   </div>
-
+  <script src="assets/js/application.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
-<script>
-  // Get references to the radio buttons and the text field container
-  var productPatent1 = document.getElementById('productPatent1');
-  var productPatent2 = document.getElementById('productPatent2');
-  var productPatentId = document.getElementById('productPatentId');
-
-  // Add event listeners to the radio buttons
-  productPatent1.addEventListener('change', function() {
-    if (productPatent1.checked) {
-      productPatentId.style.display = 'block'; // Show the text field
-    }
-  });
-
-  productPatent2.addEventListener('change', function() {
-    if (productPatent2.checked) {
-      productPatentId.style.display = 'none'; // Hide the text field
-    }
-  });
-
-  // Get references to the radio buttons and the text field container
-  var similarProduct1 = document.getElementById('similarProduct1');
-  var similarProduct2 = document.getElementById('similarProduct2');
-  var similarProductId = document.getElementById('similarProductId');
-
-  // Add event listeners to the radio buttons
-  similarProduct1.addEventListener('change', function() {
-    if (similarProduct1.checked) {
-      similarProductId.style.display = 'block'; // Show the text field
-    }
-  });
-
-  similarProduct2.addEventListener('change', function() {
-    if (similarProduct2.checked) {
-      similarProductId.style.display = 'none'; // Hide the text field
-    }
-  });
-
-  var industry = document.getElementById('industry');
-  var othersindustry = document.getElementById('othersindustry');
-  industry.addEventListener('change', function() {
-    if (industry.value === 'Others') {
-      othersindustry.style.display = 'block'; // Show the text field
-    } else {
-      othersindustry.style.display = 'none';
-    }
-  });
-</script>
