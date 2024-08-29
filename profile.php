@@ -52,11 +52,8 @@ $uniqueId = $_SESSION['uniqueId'];
                 $email = '';
                 $categoryType = '';
                 $categoryName = '';
-                $sql = "SELECT * FROM users WHERE uniqueId = ?";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("i", $uniqueId);
-                $stmt->execute();
-                $result = $stmt->get_result();
+                $sql = "SELECT * FROM users WHERE uniqueId = '$uniqueId' ";
+                $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
                     $fullname = $row['fullname'];

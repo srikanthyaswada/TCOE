@@ -1383,11 +1383,10 @@
                       </option>
                     </select>
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3" id="category" style="display: none;">
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="Organization Name"
                       id="categoryName"
                       name="categoryName"
                       required />
@@ -1422,7 +1421,7 @@
               data-bs-dismiss="modal"
               aria-label="Close"></button>
           </div>
-          <form action="forgotpassword.php" method="post">
+          <form action="forgotpassword" method="post">
             <div class="modal-body">
               <div class="mb-3">
                 <input
@@ -1945,7 +1944,7 @@
     if (categoryType.value === "Startup Professional") {
       categoryName.placeholder = 'Company Name';
     }
-    if (categoryType.value === "Academia Professional") {
+    if (categoryType.value === "Academic Professional") {
       categoryName.placeholder = 'Company Name';
     }
     if (categoryType.value === "Corporate Professional") {

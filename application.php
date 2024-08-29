@@ -107,7 +107,7 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
               <div class="form-group mb-3">
                 <label for="contactNumber" class="p-2"><span style="color: red">*</span>Contact Number
                 </label>
-                <input type="text" id="contactNumber" name="contactNumber" class="form-control" required />
+                <input type="text" id="contactNumber" name="contactNumber" class="form-control" pattern="[6-9]{1}[0-9]{9}" required />
               </div>
             </div>
           </div>
@@ -456,7 +456,7 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
         </div>
 
         <div class="pb-5 mb-4">
-          <input type="checkbox" name="declaration" id="declaration" />
+          <input type="checkbox" name="declaration" id="declaration" require />
           <span style="color: red">*</span>I declare that all the information given by me in this
           application and documents attached hereto are true to the
           best of my knowledge and that I have not willfully

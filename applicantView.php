@@ -57,11 +57,8 @@ $uniqueId = $_SESSION['uniqueId'];
             </div>
             <div class="col-lg-6 col-md-6">
                 <?php
-                $sql = "SELECT a.*,t.*,d.* FROM applicant a JOIN technical t ON a.uniqueApplicant = t.uniqueApplicant JOIN documents d ON a.uniqueApplicant = d.uniqueApplicant WHERE a.uniqueId = ?";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("i", $uniqueId);
-                $stmt->execute();
-                $result = $stmt->get_result();
+                $sql = "SELECT a.*,t.*,d.* FROM applicant a JOIN technical t ON a.uniqueApplicant = t.uniqueApplicant JOIN documents d ON a.uniqueApplicant = d.uniqueApplicant WHERE a.uniqueId = '$uniqueId' ";
+                $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                 ?>
