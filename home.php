@@ -20,7 +20,7 @@
 <body>
   <div class="">
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-      <a class="navbar-brand p-0" href="#">
+      <a class="navbar-brand p-0" href="home">
         <img
           src="./assets/images/Tcoe_logo.jpg"
           class="logo ms-5 p-0"
@@ -1871,7 +1871,7 @@
           <div class="col-md-4 mb-4">
             <div class="contact-card p-4">
               <h3 class="contact-location">Delhi</h3>
-              <p><strong>Srinath Reddy</strong></p>
+              <p><strong>Deepak Gupta</strong></p>
               <p>5g6ghack24@tcoe.in</p>
             </div>
           </div>
@@ -1887,20 +1887,32 @@
     </section>
 
     <footer class="py-4">
-      <div class="container-fluid text-center">
-        <div
-          class="d-flex justify-content-between align-items-center flex-column flex-md-row">
-          <p class="mb-0">
-            &copy; 2024 Powered by theaischool. All Rights Reserved
-          </p>
-          <div class="social-media-icons mb-2 mb-md-0">
-            <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-            <a href="#" class=""><i class="fab fa-linkedin-in"></i></a>
+      <div class="container-fluid">
+        <div class="row text-center">
+          <div class="col-md-2">
+            <a class="navbar-brand p-0" href="#">
+              <img
+                src="assets/images/theaischoollogo.jpg"
+                class="w-25" alt="" />
+            </a>
           </div>
-          <div class="footer-links">
-            <a href="#" class="mx-2">Platform Guide</a> |
-            <a href="#" class="mx-2">Privacy Policy</a>
+          <div class="col-md-5">
+            <p class="mb-0">
+              &copy; 2024 Powered by <a href="https://theaischool.co.in/" target="new">TheAISCHOOL</a> All Rights Reserved
+            </p>
+          </div>
+          <div class="col-md-2">
+            <div class="social-media-icons mb-2 mb-md-0">
+              <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/company/theaischool/" target="new" class=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="footer-links">
+              <a href="#" class="mx-2">Platform Guide</a> |
+              <a href="#" class="mx-2">Privacy Policy</a>
+            </div>
           </div>
         </div>
       </div>

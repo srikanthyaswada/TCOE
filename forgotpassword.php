@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $fullname = $row['fullname'];
         // Send the reset email
-        $resetLink = "https://theaischool.co.in/new/reset_password.php?token=" . $token;
+        $resetLink = "https://5g6g-hackathon2024.tcoe.in/reset_password.php?token=" . $token;
         $subject = "Reset Your Password for the 5G/6G Hackathon";
         // $message = "To reset your password, please click on the following link: " . $resetLink;
         $headers = "MIME-Version: 1.0" . "\r\n";
