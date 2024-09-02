@@ -5,31 +5,48 @@ include 'db_connect.php'; // Include your database connection file
 // Set the timezone to Indian Standard Time (IST)
 date_default_timezone_set('Asia/Kolkata');
 
-// Applicant Details
-$applicantName = $_POST['applicantName'];
-$organizationName = $_POST['organizationName'];
-$contactNumber = $_POST['contactNumber'];
-$email = $_POST['email'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$postalAddress = $_POST['postalAddress'];
-$applying = $_POST['applying'];
-$industry = $_POST['industry'];
-$otherindustry = "";
-if (isset($_POST['otherindustry']) && !empty(trim($_POST['otherindustry']))) {
-  $otherindustry = $_POST['otherindustry'];
-}
-$problemsStatement = $_POST['problemsStatement'];
-$applicationVerticals = "";
-if (isset($_POST['applicationVerticals']) && !empty(trim($_POST['applicationVerticals']))) {
-  $applicationVerticals = $_POST['applicationVerticals'];
-}
-$website = $_POST['website'];
-
 // Common form data
 $status = 1;
 $createAt = date('Y-m-d H:i:s');
 $uniqueId = $_SESSION['uniqueId'];
+
+// Function to validate and sanitize input
+function validate_input($data)
+{
+  return htmlspecialchars(trim($data));
+}
+
+// Validate form inputs
+$applicantName = validate_input($_POST['applicantName']);
+$organizationName = validate_input($_POST['organizationName']);
+$contactNumber = validate_input($_POST['contactNumber']);
+$email = validate_input($_POST['email']);
+$city = validate_input($_POST['city']);
+$state = validate_input($_POST['state']);
+$postalAddress = validate_input($_POST['postalAddress']);
+$applying = validate_input($_POST['applying']);
+$industry = validate_input($_POST['industry']);
+$otherindustry = isset($_POST['otherindustry']) ? validate_input($_POST['otherindustry']) : '';
+$problemsStatement = validate_input($_POST['problemsStatement']);
+$applicationVerticals = isset($_POST['applicationVerticals']) ? validate_input($_POST['applicationVerticals']) : '';
+$website = isset($_POST['website']) ? validate_input($_POST['website']) : '';
+
+
+$domain = isset($_POST['domain']) ? validate_input($_POST['domain']) : '';
+$product = isset($_POST['product']) ? validate_input($_POST['product']) : '';
+$presentationVideo = isset($_POST['presentationVideo']) ? validate_input($_POST['presentationVideo']) : '';
+$technologyLevel = validate_input($_POST['technologyLevel']);
+$describeProduct = isset($_POST['describeProduct']) ? validate_input($_POST['describeProduct']) : '';
+$productPatent = validate_input($_POST['productPatent']);
+$patentDetails = isset($_POST['patentDetails']) ? validate_input($_POST['patentDetails']) : '';
+$similarProduct = validate_input($_POST['similarProduct']);
+
+// File validation function
+function validate_file($file, $allowed_types)
+{
+  $file_type = mime_content_type($file['tmp_name']);
+  return in_array($file_type, $allowed_types);
+}
 
 $folderName = 'assets/users/' . $uniqueId;
 if (!file_exists($folderName)) {
@@ -37,105 +54,93 @@ if (!file_exists($folderName)) {
 }
 
 // Handle file uploads
-$productFile = $_FILES['productFile']['name'];
-$productFileTmp = $_FILES['productFile']['tmp_name'];
-$productFileExtension = pathinfo($productFile, PATHINFO_EXTENSION);
-$productFileName = 'product_' . date('YmdHis') . '.' . $productFileExtension;
-$productFilePath = $folderName . '/' . $productFileName; // Path to save the file
-move_uploaded_file($productFileTmp, $productFilePath);
+$allowed_doc_types = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+$allowed_image_types = ['image/jpeg', 'image/png', 'image/gif'];
 
-$presentationVideo = $_FILES['presentationVideo']['name'];
-$presentationVideoTmp = $_FILES['presentationVideo']['tmp_name'];
-$presentationVideoExtension = pathinfo($presentationVideo, PATHINFO_EXTENSION);
-$presentationVideoName = 'presentation_' . date('YmdHis') . '.' . $presentationVideoExtension;
-$presentationVideoPath = $folderName . '/' . $presentationVideoName; // Path to save the file
-move_uploaded_file($presentationVideoTmp, $presentationVideoPath);
+$productFile = '';
+if ($_FILES['productFile']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['productFile'], $allowed_doc_types)) {
+  $$productFile = $_FILES['productFile']['name'];
+  $productFileExtension = pathinfo($productFile, PATHINFO_EXTENSION);
+  $productFileName = 'productFile_' . date('YmdHis') . '.' . $productFileExtension;
+  $productFilePath = $folderName . '/' . $productFileName;
+  move_uploaded_file($_FILES['productFile']['tmp_name'], $productFilePath);
+}
 
-$proofPoC = $_FILES['proofPoC']['name'];
-$proofPoCTmp = $_FILES['proofPoC']['tmp_name'];
-$proofPoCExtension = pathinfo($proofPoC, PATHINFO_EXTENSION);
-$proofPoCName = 'proofPoC_' . date('YmdHis') . '.' . $proofPoCExtension;
-$proofPoCPath = $folderName . '/' . $proofPoCName; // Path to save the file
-move_uploaded_file($proofPoCTmp, $proofPoCPath);
+$proofPoC = '';
+if ($_FILES['proofPoC']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['proofPoC'], $allowed_image_types)) {
+  $proofPoC = $_FILES['proofPoC']['name'];
+  $proofPoCExtension = pathinfo($proofPoC, PATHINFO_EXTENSION);
+  $proofPoCName = 'proofPoC_' . date('YmdHis') . '.' . $proofPoCExtension;
+  $proofPoCPath = $folderName . '/' . $proofPoCName;
+  move_uploaded_file($_FILES['proofPoC']['tmp_name'], $proofPoCPath);
+}
 
-$similarProductFile = $_FILES['similarProductFile']['name'];
-$similarProductFilePath = "";
-if (isset($similarProductFile) && !empty(trim($similarProductFile))) {
-  $similarProductFileTmp = $_FILES['similarProductFile']['tmp_name'];
+$similarProductFile = '';
+if ($_FILES['similarProductFile']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['similarProductFile'], $allowed_doc_types)) {
+  $similarProductFile = $_FILES['similarProductFile']['name'];
   $similarProductFileExtension = pathinfo($similarProductFile, PATHINFO_EXTENSION);
-  $similarProductFileName = 'productFile_' . date('YmdHis') . '.' . $similarProductFileExtension;
-  $similarProductFilePath = $folderName . '/' . $similarProductFileName; // Path to save the file
-  move_uploaded_file($similarProductFileTmp, $similarProductFilePath);
+  $similarProductFileName = 'similarProductFile_' . date('YmdHis') . '.' . $similarProductFileExtension;
+  $similarProductFilePath = $folderName . '/' . $similarProductFileName;
+  move_uploaded_file($_FILES['similarProductFile']['tmp_name'], $similarProductFilePath);
 }
 
-// Technical Details
-$domain = $_POST['domain'];
-$product = $_POST['product'];
-$productFile = $productFilePath;
-$presentationVideo = $presentationVideoPath;
-$technologyLevel = $_POST['technologyLevel'];
-$proofPoC = $proofPoCPath;
-$describeProduct = $_POST['describeProduct'];
-
-
-$productPatent = $_POST['productPatent'];
-$patentDetails = "";
-if (isset($_POST['patentDetails']) && !empty(trim($_POST['patentDetails']))) {
-  $patentDetails = $_POST['patentDetails'];
+$shareholding = '';
+if ($_FILES['shareholding']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['shareholding'], $allowed_doc_types)) {
+  $shareholding = $_FILES['shareholding']['name'];
+  $shareholdingExtension = pathinfo($shareholding, PATHINFO_EXTENSION);
+  $shareholdingName = 'shareholding_' . date('YmdHis') . '.' . $shareholdingExtension;
+  $shareholdingPath = $folderName . '/' . $shareholdingName;
+  move_uploaded_file($_FILES['shareholding']['tmp_name'], $shareholdingPath);
 }
-$similarProduct = $_POST['similarProduct'];
-$similarProductFile = $similarProductFilePath;
 
-$shareholding = $_FILES['shareholding']['name'];
-$shareholdingTmp = $_FILES['shareholding']['tmp_name'];
-$shareholdingExtension = pathinfo($shareholding, PATHINFO_EXTENSION);
-$shareholdingName = 'shareholding_' . date('YmdHis') . '.' . $shareholdingExtension;
-$shareholdingPath = $folderName . '/' . $shareholdingName;
-move_uploaded_file($shareholdingTmp, $shareholdingPath);
+$incorporation = '';
+if ($_FILES['incorporation']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['incorporation'], $allowed_doc_types)) {
+  $incorporation = $_FILES['incorporation']['name'];
+  $incorporationExtension = pathinfo($incorporation, PATHINFO_EXTENSION);
+  $incorporationName = 'incorporation_' . date('YmdHis') . '.' . $incorporationExtension;
+  $incorporationPath = $folderName . '/' . $incorporationName;
+  move_uploaded_file($_FILES['incorporation']['tmp_name'], $incorporationPath);
+}
 
-$incorporation = $_FILES['incorporation']['name'];
-$incorporationTmp = $_FILES['incorporation']['tmp_name'];
-$incorporationExtension = pathinfo($incorporation, PATHINFO_EXTENSION);
-$incorporationName = 'incorporation_' . date('YmdHis') . '.' . $incorporationExtension;
-$incorporationPath = $folderName . '/' . $incorporationName;
-move_uploaded_file($incorporationTmp, $incorporationPath);
+$idProof = '';
+if ($_FILES['idProof']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['idProof'], $allowed_doc_types)) {
+  $idProof = $_FILES['idProof']['name'];
+  $idProofExtension = pathinfo($idProof, PATHINFO_EXTENSION);
+  $idProofName = 'idProof_' . date('YmdHis') . '.' . $idProofExtension;
+  $idProofPath = $folderName . '/' . $idProofName;
+  move_uploaded_file($_FILES['idProof']['tmp_name'], $idProofPath);
+}
 
-$idProof = $_FILES['idProof']['name'];
-$idProofTmp = $_FILES['idProof']['tmp_name'];
-$idProofExtension = pathinfo($idProof, PATHINFO_EXTENSION);
-$idProofName = 'idProof_' . date('YmdHis') . '.' . $idProofExtension;
-$idProofPath = $folderName . '/' . $idProofName;
-move_uploaded_file($idProofTmp, $idProofPath);
+// Server-side validation (example for required fields)
+if (empty($applicantName) || empty($organizationName) || empty($contactNumber) || empty($email) || empty($city) || empty($state) || empty($postalAddress) || empty($applying) || empty($industry) || empty($problemsStatement)) {
+  die('All required fields must be filled out.');
+}
 
-// Document Details
-$shareholding = $shareholdingPath;
-$incorporation = $incorporationPath;
-$idProof = $idProofPath;
-// Insert data into the database
-$sql = "INSERT INTO applicant (applicantName, organizationName, contactNumber, email, city, state, postalAddress, applying, industry, otherindustry, problemsStatement, applicationVerticals, website, status, createAt, uniqueId)
+// Insert data into the database using prepared statements
+try {
+  $sql = "INSERT INTO applicant (applicantName, organizationName, contactNumber, email, city, state, postalAddress, applying, industry, otherindustry, problemsStatement, applicationVerticals, website, status, createAt, uniqueId)
         VALUES ('$applicantName', '$organizationName', '$contactNumber', '$email', '$city', '$state', '$postalAddress', '$applying', '$industry', '$otherindustry', '$problemsStatement', '$applicationVerticals', '$website', '$status', '$createAt', '$uniqueId')";
-if ($conn->query($sql) === TRUE) {
-  $uniqueApplicant = $conn->insert_id;
+  if ($conn->query($sql) === TRUE) {
+    $uniqueApplicant = $conn->insert_id;
+    $sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo, technologyLevel, proofPoC, describeProduct, productPatent, patentDetails, similarProduct, similarProductFile, status, createAt, uniqueId, uniqueApplicant) VALUES ('$domain', '$product', '$productFilePath', '$presentationVideo', '$technologyLevel', '$proofPoCPath', '$describeProduct', '$productPatent', '$patentDetails', '$similarProduct', '$similarProductFilePath', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
+    $sql2 = "INSERT INTO documents (shareholding, incorporation, idProof, status, createAt, uniqueId, uniqueApplicant) VALUES ('$shareholdingPath', '$incorporationPath', '$idProofPath', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
+    if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
+      $to = $email;
+      $subject = 'Application Submission for 5G/6G Hackathon';
+      $organizerName = $organizationName;
+      $teamName = $applicantName;
+      $projectTitle = $problemsStatement;
+      $teamEmail = $email;
+      $teamPhone = $contactNumber;
 
-  $sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo, technologyLevel, proofPoC, describeProduct, productPatent, patentDetails, similarProduct, similarProductFile, status, createAt, uniqueId, uniqueApplicant) VALUES ('$domain', '$product', '$productFile', '$presentationVideo', '$technologyLevel', '$proofPoC', '$describeProduct', '$productPatent', '$patentDetails', '$similarProduct', '$similarProductFile', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
-  $sql2 = "INSERT INTO documents (shareholding, incorporation, idProof, status, createAt, uniqueId, uniqueApplicant) VALUES ('$shareholding', '$incorporation', '$idProof', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
-  if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
-    $to = $email;
-    $subject = 'Application Submission for 5G/6G Hackathon';
-    $organizerName = $organizationName;
-    $teamName = $applicantName;
-    $projectTitle = $problemsStatement;
-    $teamEmail = $email;
-    $teamPhone = $contactNumber;
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= "From: 5g6ghack24@tcoe.in" . "\r\n";
+      $headers .= "Reply-To: 5g6ghack24@tcoe.in" . "\r\n";
+      $headers .= "X-Mailer: PHP/" . phpversion();
 
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: 5g6ghack24@tcoe.in" . "\r\n";
-    $headers .= "Reply-To: 5g6ghack24@tcoe.in" . "\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
-
-    // Email body
-    $message = "
+      // Email body
+      $message = "
 <html>
 <head>
   <title>Application Submission for 5G/6G Hackathon</title>
@@ -161,18 +166,17 @@ if ($conn->query($sql) === TRUE) {
 </html>
 ";
 
-    if (mail($email, $subject, $message, $headers)) {
-      echo "<script>alert('Application submission email sent successfully to {$organizerName}.');</script>";
-    } else {
-      echo "<script>alert('Failed to send the application submission email.');</script>";
+      if (mail($to, $subject, $message, $headers)) {
+        echo "<script>alert('Application submission email sent successfully to {$organizerName}.');</script>";
+      } else {
+        echo "<script>alert('Failed to send the application submission email.');</script>";
+      }
     }
-
-    // Redirect to another page after successful submission
-    // echo "<script>alert('Please note: Once Application is submitted user cant Edit CTA: Submit');</script>";
   }
-} else {
-  echo "<script>alert(''.$conn->error);</script>";
+  // echo "Application submitted successfully.";
+} catch (Exception $e) {
+  // Error handling
+  $a =  "Error: " . $e->getMessage();
+  echo "<script>alert(''.$a);</script>";
 }
 echo "<script> window.location.href='applicantView';</script>";
-
-$conn->close();
