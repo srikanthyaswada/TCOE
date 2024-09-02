@@ -59,7 +59,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('No account found with that email address.');</script>";
     }
     echo "<script> window.location.href='home#authModal';</script>";
-
-    $stmt->close();
     $conn->close();
 }
