@@ -4,10 +4,16 @@ if (!isset($_SESSION['uniqueId'])) {
   header("Location: home");
   exit();
 }
-
 $problemStatementValue = "5G & 6G HACKATHON-2024 Idea Submission";
 if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStatementValue']))) {
   $problemStatementValue = $_POST['problemStatementValue'];
+} else {
+?>
+  <script>
+    alert('Choose at least one problem statements.');
+    window.location.href = 'participant#problem-statements';
+  </script>
+<?php
 }
 ?>
 <!DOCTYPE html>
@@ -15,10 +21,8 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
 
 <head>
   <meta charset="UTF-8" />
-  <title>Forms</title>
+  <title>Application Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -26,13 +30,12 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
   <link rel="stylesheet" href="assets/css/application.css" />
 </head>
 
-<body>
-  <header class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
+<body class="container-fluid">
+  <header class="navbar navbar-expand-lg navbar-light p-0 sticky-top">
     <div class="container-fluid" id="home">
       <a class="navbar-brand" href="participant">
-        <img src="./assets/images/Tcoe_logo.jpg" alt="Logo" width="80" height="50" />
+        <img src="assets/images/Tcoe_logo.jpg" alt="Logo" class="w-25" />
       </a>
-
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown"
@@ -49,12 +52,10 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
       </ul>
     </div>
   </header>
-  <div class="row g-0">
-    <div class="col-sm-6 m-auto text-primary">
-      <div class="container mt-5">
-        <h4 class="text-black ms-2">Application:
-          <?= $problemStatementValue ?>
-        </h4>
+  <div class="row">
+    <h4 class="text-center">Application:<span class="mx-2"><?= $problemStatementValue ?></span></h4>
+    <div class="col-sm-6 offset-sm-3">
+      <form name="applicationForm" action="applicant" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         <div class="stepper-wrapper">
           <div class="stepper-item">
             <div class="step-counter">1</div>
@@ -65,73 +66,50 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
           <div class="stepper-item">
             <div class="step-counter">2</div>
             <div class="step-name">
-              <a href="#techincal" class="nav-link">Techinical data</a>
+              <a href="#techincal" class="nav-link">Techinical Data</a>
             </div>
           </div>
           <div class="stepper-item">
             <div class="step-counter">3</div>
             <div class="step-name">
-              <a href="#document" class="nav-link">Document data</a>
+              <a href="#document" class="nav-link">Document Data</a>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <form action="applicant.php" method="post" enctype="multipart/form-data">
-      <div class="row g-0" id="applicant">
-        <div class="col-md-6 m-auto">
-          <div class="container head mt-4">
-            <h5 class="text-white p-2 text-center">Applicant Details</h5>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
-              <div class="form-group mb-3">
-                <label for="applicantName" class="p-2"><span style="color: red">*</span>Name</label>
-                <input type="text" id="applicantName" name="applicantName" class="form-control" required />
-              </div>
+        <div class="mt-3">
+          <div id="applicant">
+            <div class="head">
+              <h5 class="text-white text-center p-2">Applicant Details</h5>
             </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
+            <div class="container">
               <div class="form-group mb-3">
-                <label for="organizationName" class="p-2"><span style="color: red">*</span>Organization
-                  Name</label>
-                <input type="text" id="organizationName" name="organizationName" class="form-control" required />
+                <label for="applicantName"><span style="color: red">*</span>Name:</label>
+                <input type="text" id="applicantName" name="applicantName" class="form-control">
+                <div id="applicantNameError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
               <div class="form-group mb-3">
-                <label for="contactNumber" class="p-2"><span style="color: red">*</span>Contact Number
-                </label>
-                <input type="text" id="contactNumber" name="contactNumber" class="form-control" pattern="[6-9]{1}[0-9]{9}" required />
+                <label for="organizationName"><span style="color: red">*</span>Organization Name:</label>
+                <input type="text" id="organizationName" name="organizationName" class="form-control">
+                <div id="organizationNameError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
               <div class="form-group mb-3">
-                <label for="email" class="p-2"><span style="color: red">*</span>Email</label>
-                <input type="email" id="email" name="email" class="form-control" required />
+                <label for="contactNumber"><span style="color: red">*</span>Contact Number:</label>
+                <input type="text" id="contactNumber" name="contactNumber" class="form-control" pattern="\d{10}">
+                <div id="contactNumberError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
               <div class="form-group mb-3">
-                <label for="city" class="p-2"><span style="color: red">*</span>City</label>
-                <input type="text" id="city" name="city" class="form-control" required />
+                <label for="email"><span style="color: red">*</span>Email:</label>
+                <input type="email" id="email" name="email" class="form-control">
+                <div id="emailError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
               <div class="form-group mb-3">
-                <label for="state" class="p-2"><span style="color: red">*</span>State</label>
-                <select id="state" name="state" class="form-select" required>
+                <label for="city"><span style="color: red">*</span>City:</label>
+                <input type="text" id="city" name="city" class="form-control">
+                <div id="cityError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="state"><span style="color: red">*</span>State:</label>
+                <select id="state" name="state" class="form-select">
                   <option value="" disabled selected>Select</option>
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
                   <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -171,23 +149,16 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
                   <option value="Jammu and Kashmir">Jammu and Kashmir</option>
                   <option value="Ladakh">Ladakh</option>
                 </select>
+                <div id="stateError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
               <div class="form-group mb-3">
-                <label for="postalAddress" class="p-2"><span style="color: red">*</span>Postal
-                  Address</label>
-                <input type="text" id="postalAddress" name="postalAddress" class="form-control" required />
+                <label for="postalAddress"><span style="color: red">*</span>Postal Address:</label>
+                <input type="text" id="postalAddress" name="postalAddress" class="form-control">
+                <div id="postalAddressError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
               <div class="form-group mb-3">
-                <label for="applying" class="p-2">Applying as</label>
-                <select class="form-select" id="applying" name="applying" required>
+                <label for="applying"><span style="color: red">*</span>Applying as:</label>
+                <select id="applying" name="applying" class="form-select">
                   <option value="" disabled selected>Select</option>
                   <option value="Student">Student</option>
                   <option value="Startup">Startup</option>
@@ -196,14 +167,11 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
                     Individual/Team
                   </option>
                 </select>
+                <div id="applyingError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content">
-            <div class="col">
               <div class="form-group mb-3">
-                <label for="industry" class="p-2">Industry Vertical</label>
-                <select class="form-select" id="industry" name="industry" required>
+                <label for="industry"><span style="color: red">*</span>Industry Vertical:</label>
+                <select id="industry" name="industry" class="form-select">
                   <option value="" disabled selected>Select</option>
                   <option value="AgriTech & Livestock">AgriTech & Livestock</option>
                   <option value="Healthcare, Education & Governance">
@@ -225,33 +193,24 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
                   <option value="Satellite">Satellite</option>
                   <option value="Others">Others</option>
                 </select>
+                <div id="industryError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content" id="othersindustry" style="display: none;">
-            <div class="col">
-              <div class="form-group mb-3">
-                <label for="otherindustry" class="p-2">Other Industry Vertical</label>
-                <input type="text" id="otherindustry" name="otherindustry" class="form-control" />
+              <div class="form-group mb-3" id="otherindustryId" style="display: none;">
+                <label for="otherindustry">Other Industry Vertical (if any):</label>
+                <input type="text" id="otherindustry" name="otherindustry" class="form-control">
+                <div id="otherindustryError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content" style="display: none;">
-            <div class="col">
-              <div class="form-group mb-3">
-                <label for="problemsStatement" class="p-2"><span style="color: red">*</span>Problem Statement</label>
-                <input type="text" id="problemsStatement" name="problemsStatement" class="form-control" value="<?= $problemStatementValue ?>" required readonly />
+              <div class="form-group mb-3" id="problemsStatement1" style="display: none;">
+                <label for="problemsStatement"><span style="color: red">*</span>Problem Statement:</label>
+                <input type="text" id="problemsStatement" name="problemsStatement" value="<?= $problemStatementValue ?>" class="form-control">
+                <div id="problemsStatementError" class="error"></div>
               </div>
-            </div>
-          </div>
-          <?php
-          if ($problemStatementValue === "Suo Moto") {
-          ?>
-            <div class="row justify-content">
-              <div class="col">
+              <?php
+              if ($problemStatementValue === "Suo Moto") {
+              ?>
                 <div class="form-group mb-3">
-                  <label for="applicationVerticals" class="p-2">Please select your Application Verticals</label>
-                  <select class="form-select" id="applicationVerticals" name="applicationVerticals">
+                  <label for="applicationVerticals">Please select your Application Verticals:</label>
+                  <select id="applicationVerticals" name="applicationVerticals" class="form-select">
                     <option value="" disabled selected>Select</option>
                     <option value="Automobile/ Transport/Logistics">Automobile/ Transport/Logistics</option>
                     <option value="Industry 4.0">Industry 4.0</option>
@@ -268,215 +227,138 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
                     <option value="Cyber Security, Quantum communications and security">Cyber Security, Quantum communications and security</option>
                     <option value="Environment, Public Safety & Disaster Management">Environment, Public Safety & Disaster Management</option>
                   </select>
+                  <div id="applicationVerticalsError" class="error"></div>
                 </div>
-              </div>
-            </div>
-          <?php
-          }
-          ?>
-          <div class="row justify-content">
-            <div class="col">
+              <?php
+              }
+              ?>
               <div class="form-group mb-3">
-                <label for="website" class="p-2"><span style="color: red">*</span>Website</label>
-                <input type="text" id="website" name="website" class="form-control" required />
+                <label for="website">Website:</label>
+                <input type="text" id="website" name="website" class="form-control">
+                <div id="websiteError" class="error"></div>
+              </div>
+            </div>
+          </div>
+          <div id="techincal">
+            <div class="head">
+              <h5 class="text-white text-center p-2">Techinical Datails</h5>
+            </div>
+            <div class="container">
+              <div class="form-group mb-3">
+                <label for="domain">Domain/Thrust Area:</label>
+                <input type="text" id="domain" name="domain" class="form-control">
+                <div id="domainError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="product">Brief About Your Product/Solution:</label>
+                <textarea id="product" name="product" class="form-control"></textarea>
+                <div id="productError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="productFile">Upload the note on Technical Details or Product/Solution:</label>
+                <input type="file" id="productFile" name="productFile" accept=".pdf,.doc,.docx" class="form-control">
+                <div id="productFileError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="presentationVideo">Please provide the Power Point Presentation /two-minute Product Video (YouTube URL):</label>
+                <input type="text" id="presentationVideo" name="presentationVideo" class="form-control">
+                <div id="presentationVideoError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="technologyLevel">Stage Of Product based on minimum Technology Readiness Level:</label>
+                <select id="technologyLevel" name="technologyLevel" class="form-select">
+                  <option value="" disabled selected>Select</option>
+                  <option value="TRL9 Operations">TRL9 Operations</option>
+                  <option value="TRL8 Active Commissioning">TRL8 Active Commissioning</option>
+                  <option value="TRL7 Inactive Commissioning">TRL7 Inactive Commissioning</option>
+                  <option value="RL6 Large Scale">
+                    TRL6 Large Scale
+                  </option>
+                  <option value="TRL5 Pilot Scale">
+                    TRL5 Pilot Scale
+                  </option>
+                  <option value="TRL4 Bench Scale Research">TRL4 Bench Scale Research</option>
+                  <option value="TRL3 Proof of Concept">TRL3 Proof of Concept</option>
+                </select>
+                <div id="technologyLevelError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="proofPoC">Proof for PoC (Picture):</label>
+                <input type="file" id="proofPoC" name="proofPoC" accept=".jpg,.jpeg,.png" class="form-control">
+                <div id="proofPoCError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="describeProduct">Describe how your solution or products classifies as a 5G and Beyond usecase. What are the challenges faced from connectivity solutions over 3G/4G:</label>
+                <textarea id="describeProduct" name="describeProduct" class="form-control"></textarea>
+                <div id="describeProductError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="productPatent">Have you filed a patent for your product/solution:</label>
+                <input type="radio" id="productPatentYes" name="productPatent" value="Yes" checked> Yes
+                <input type="radio" id="productPatentNo" name="productPatent" value="No"> No
+                <div id="productPatentError" class="error"></div>
+              </div>
+              <div class="form-group mb-3" id="patentDetailsId" style="display: block;">
+                <label for="patentDetails">If yes, please provide details:</label>
+                <textarea id="patentDetails" name="patentDetails" class="form-control"></textarea>
+                <div id="patentDetailsError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="similarProduct">Is there any similar product/ solution available in the market w.r.t your solution?:</label><br>
+                <input type="radio" id="similarProductYes" name="similarProduct" value="Yes" checked> Yes
+                <input type="radio" id="similarProductNo" name="similarProduct" value="No"> No
+                <div id="similarProductError" class="error"></div>
+              </div>
+              <div class="form-group mb-3" id="similarProductFileId" style="display: block;">
+                <label for="similarProductFile">If yes, does your proposed product have advantage over other existing solutions:</label>
+                <input type="file" id="similarProductFile" name="similarProductFile" class="form-control" accept=".pdf,.ppt,.pptx">
+                <div id="similarProductFileError" class="error"></div>
+              </div>
+            </div>
+          </div>
+          <div id="document">
+            <div class="head">
+              <h5 class="text-white text-center p-2">Document Details</h5>
+            </div>
+            <div class="container">
+              <div class="form-group mb-3">
+                <label for="shareholding">51% shareholding by Indian citizen or Indian Entity (In case of Startups):</label>
+                <input type="file" id="shareholding" name="shareholding" class="form-control" accept=".pdf">
+                <div id="shareholdingError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="incorporation">Incorporation Certificate (in case of Startups):</label>
+                <input type="file" id="incorporation" name="incorporation" class="form-control" accept=".pdf">
+                <div id="incorporationError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="idProof">ID Proof/ Passport of Applicant:</label>
+                <input type="file" id="idProof" name="idProof" class="form-control" accept=".pdf">
+                <div id="idProofError" class="error"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-  </div>
-  </div>
-  </div>
-  <div class="row g-0" id="techincal">
-    <div class="col-md-6 m-auto">
-      <div class="container">
-
-        <div class=" text-center head">
-          <h5 class="text-white p-2 text-center">Techinical Datails</h5>
+        <div>
+          <label for="declaration" class="mb-5">
+            <input type="checkbox" id="declaration" name="declaration" /> I declare that all the information given by me in this
+            application and documents attached hereto are true to the
+            best of my knowledge and that I have not willfully
+            suppressed any material fact. I accept that if any of the
+            information given by me in this application is in any way
+            false or incorrect, my application may be rejected, any
+            offer of the grant may be withdrawn or my candidature may be
+            rejected at any time. I agree to adhere and comply to terms
+            and condition given above<br><br>
+            <span id="declarationError" class="error"></span>
+          </label>
         </div>
-
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="domain" class="p-2">Domain/Thrust Area</label>
-              <input type="text" id="domain" name="domain" class="form-control" required />
-            </div>
-          </div>
+        <div class="button-section">
+          <button type="reset" class="save-btn btn m-2">Reset</button>
+          <button type="submit" class="submit-btn btn m-2">Submit</button>
         </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="product" class="p-2">Brief about your product/solution</label>
-              <textarea id="product" name="product" class="form-control" required></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="productFile" class="p-2"><span style="color: red">*</span>Upload the note on
-                Technical Details or Product/Solution
-              </label>
-              <input type="file" id="productFile" name="productFile" class="form-control" required accept=".pdf,.doc,.docx" />
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="presentationVideo" class="p-2"><span style="color: red">*</span>Please provide the
-                Power Point Presentation /two-minute product
-                video</label>
-              <input type="file" id="presentationVideo" name="presentationVideo" class="form-control" required accept=".pdf,.mp4,.ppt,.pptx" />
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="technologyLevel" class="p-2"><span style="color: red">*</span>Stage Of Product
-                based on minimum Technology Readiness Level</label>
-              <select class="form-select" id="industry" name="industry" required>
-                <option value="" disabled selected>Select</option>
-                <option value="TRL9 Operations">TRL9 Operations</option>
-                <option value="TRL8 Active Commissioning">TRL8 Active Commissioning</option>
-                <option value="TRL7 Inactive Commissioning">TRL7 Inactive Commissioning</option>
-                <option value="RL6 Large Scale">
-                  TRL6 Large Scale
-                </option>
-                <option value="TRL5 Pilot Scale">
-                  TRL5 Pilot Scale
-                </option>
-                <option value="TRL4 Bench Scale Research">TRL4 Bench Scale Research</option>
-                <option value="TRL3 Proof of Concept">TRL3 Proof of Concept</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="proofPoC" class="p-2"><span style="color: red">*</span>Proof for PoC
-                (Video, Picture etc)</label>
-              <input type="file" id="proofPoC" name="proofPoC" class="form-control" required accept=".pdf,.mp4,.jpg,.jpeg,.png" />
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="describeProduct" class="p-2"><span style="color: red">*</span>Describe how your
-                solution or products classifies as a 5G and Beyond
-                usecase. What are the challenges faced from
-                connectivity solutions over 3G/4G</label>
-              <textarea id="describeProduct" name="describeProduct" class="form-control" required></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="productPatent" class="p-2"><span style="color: red">*</span>Have you filed a
-                patent for your product/solution</label>
-              <input type="radio" id="productPatent1" name="productPatent" value="Yes" checked />Yes
-              <input type="radio" id="productPatent2" name="productPatent" value="No" />No
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content" id="productPatentId" style="display: block;">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="patentDetails" class="p-2">If yes, please provide details</label>
-              <textarea id="patentDetails" name="patentDetails" class="form-control"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="similarProduct" class="p-2"><span style="color: red">*</span>Is there any similar
-                product/ solution available in the market w.r.t your
-                solution?</label>
-              <br>
-              <input type="radio" id="similarProduct1" name="similarProduct" value="Yes" checked />Yes
-              <input type="radio" id="similarProduct2" name="similarProduct" value="No" />No
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content" id="similarProductId" style="display: block;">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="similarProductFile" class="p-2">If yes, does your
-                proposed product have advantage over other existing
-                solutions</label>
-              <input type="File" id="similarProductFile" name="similarProductFile" class="form-control" accept=".pdf,.ppt,.pptx" />
-            </div>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
-  </div>
-  </div>
-  </div>
-  <div class="row g-0" id="document">
-    <div class="col-md-6 m-auto">
-      <div class="container">
-
-        <div class=" text-center head">
-          <h5 class="text-white p-2">Document Details</h5>
-        </div>
-
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="shareholding" class="p-2"><span style="color: red">*</span>51% shareholding by
-                Indian citizen or Indian Entity (In case of
-                Startups)</label>
-              <input type="file" id="shareholding" name="shareholding" class="form-control" required accept=".pdf" />
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="incorporation" class="p-2"><span style="color: red">*</span>Incorporation
-                Certificate (in case of Startups)</label>
-              <input type="file" id="incorporation" name="incorporation" class="form-control" required accept=".pdf" />
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content">
-          <div class="col">
-            <div class="form-group mb-3">
-              <label for="idProof" class="p-2"><span style="color: red">*</span>ID Proof/ passport
-                of Applicant</label>
-              <input type="file" id="idProof" name="idProof" class="form-control" required accept=".pdf" />
-            </div>
-          </div>
-        </div>
-
-        <div class="pb-5 mb-4">
-          <input type="checkbox" name="declaration" id="declaration" require />
-          <span style="color: red">*</span>I declare that all the information given by me in this
-          application and documents attached hereto are true to the
-          best of my knowledge and that I have not willfully
-          suppressed any material fact. I accept that if any of the
-          information given by me in this application is in any way
-          false or incorrect, my application may be rejected, any
-          offer of the grant may be withdrawn or my candidature may be
-          rejected at any time. I agree to adhere and comply to terms
-          and condition given above
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="mt-4 button-section bg-light">
-    <button type="reset" class="save-btn btn m-2">Reset</button>
-    <button type="submit" class="submit-btn btn m-2">Submit</button>
-  </div>
-  </form>
   </div>
   <script src="assets/js/application.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>

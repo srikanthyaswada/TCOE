@@ -99,3 +99,6 @@ body {
 .font{
   font-family: sans-serif;
 }
+.error {
+  color: red;
+}
