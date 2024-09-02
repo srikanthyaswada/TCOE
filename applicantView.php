@@ -50,10 +50,7 @@ $uniqueId = $_SESSION['uniqueId'];
                 <h2 class="">My Application</h2>
             </div>
             <div class="col-lg-3 col-md-3">
-                <form action="application" method="post">
-                    <input type="hidden" class="form-control" id="problemStatementValue" name="problemStatementValue" value="5G Enabled Consoles/Devices For Students" readonly>
-                    <button type="submit" class="btn btn-primary text-white">Add More Problem Statements</button>
-                </form>
+                <button type="button" id="psButton" class="btn btn-primary text-white">Add More Problem Statements</button>
             </div>
             <div class="col-lg-6 col-md-6">
                 <?php
@@ -293,6 +290,15 @@ $uniqueId = $_SESSION['uniqueId'];
             </div>
         </div>
     </div>
+
+    <script>
+        var psButton = document.getElementById("psButton");
+        psButton.addEventListener("click", function() {
+            alert('You will be redirected to the problem statements section.');
+            window.location.href = 'participant#problem-statements';
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
