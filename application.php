@@ -157,15 +157,24 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
                 <div id="postalAddressError" class="error"></div>
               </div>
               <div class="form-group mb-3">
-                <label for="applying"><span style="color: red">*</span>Applying as:</label>
-                <select id="applying" name="applying" class="form-select">
+                <label for="category"><span style="color: red">*</span>Please select your category:</label>
+                <select id="category" name="category" class="form-select">
                   <option value="" disabled selected>Select</option>
                   <option value="Student">Student</option>
                   <option value="Startup">Startup</option>
-                  <option value="Academia">Academia</option>
-                  <option value="Individual/Team">
-                    Individual/Team
+                  <option value="Corporate professional">Corporate professional</option>
+                  <option value="Academia (Professor/research scholars)">
+                    Academia (Professor/research scholars)
                   </option>
+                </select>
+                <div id="categoryError" class="error"></div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="applying"><span style="color: red">*</span>Applying as:</label>
+                <select id="applying" name="applying" class="form-select">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Individual">Individual</option>
+                  <option value="Team">Team</option>
                 </select>
                 <div id="applyingError" class="error"></div>
               </div>
@@ -233,7 +242,7 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
               }
               ?>
               <div class="form-group mb-3">
-                <label for="website">Website:</label>
+                <label for="website">Website/LinkedIn:</label>
                 <input type="text" id="website" name="website" class="form-control">
                 <div id="websiteError" class="error"></div>
               </div>
@@ -260,11 +269,6 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
                 <div id="productFileError" class="error"></div>
               </div>
               <div class="form-group mb-3">
-                <label for="presentationVideo">Please provide the Power Point Presentation /two-minute Product Video (YouTube URL):</label>
-                <input type="text" id="presentationVideo" name="presentationVideo" class="form-control">
-                <div id="presentationVideoError" class="error"></div>
-              </div>
-              <div class="form-group mb-3">
                 <label for="technologyLevel">Stage Of Product based on minimum Technology Readiness Level:</label>
                 <select id="technologyLevel" name="technologyLevel" class="form-select">
                   <option value="" disabled selected>Select</option>
@@ -281,11 +285,6 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
                   <option value="TRL3 Proof of Concept">TRL3 Proof of Concept</option>
                 </select>
                 <div id="technologyLevelError" class="error"></div>
-              </div>
-              <div class="form-group mb-3">
-                <label for="proofPoC">Proof for PoC (Picture):</label>
-                <input type="file" id="proofPoC" name="proofPoC" accept=".jpg,.jpeg,.png" class="form-control">
-                <div id="proofPoCError" class="error"></div>
               </div>
               <div class="form-group mb-3">
                 <label for="describeProduct">Describe how your solution or products classifies as a 5G and Beyond usecase. What are the challenges faced from connectivity solutions over 3G/4G:</label>
@@ -321,11 +320,6 @@ if (isset($_POST['problemStatementValue']) && !empty(trim($_POST['problemStateme
               <h5 class="text-white text-center p-2">Document Details</h5>
             </div>
             <div class="container">
-              <div class="form-group mb-3">
-                <label for="shareholding">51% shareholding by Indian citizen or Indian Entity (In case of Startups):</label>
-                <input type="file" id="shareholding" name="shareholding" class="form-control" accept=".pdf">
-                <div id="shareholdingError" class="error"></div>
-              </div>
               <div class="form-group mb-3">
                 <label for="incorporation">Incorporation Certificate (in case of Startups):</label>
                 <input type="file" id="incorporation" name="incorporation" class="form-control" accept=".pdf">

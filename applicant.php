@@ -24,6 +24,7 @@ $email = validate_input($_POST['email']);
 $city = validate_input($_POST['city']);
 $state = validate_input($_POST['state']);
 $postalAddress = validate_input($_POST['postalAddress']);
+$category = validate_input($_POST['category']);
 $applying = validate_input($_POST['applying']);
 $industry = validate_input($_POST['industry']);
 $otherindustry = isset($_POST['otherindustry']) ? validate_input($_POST['otherindustry']) : '';
@@ -34,7 +35,6 @@ $website = isset($_POST['website']) ? validate_input($_POST['website']) : '';
 
 $domain = isset($_POST['domain']) ? validate_input($_POST['domain']) : '';
 $product = isset($_POST['product']) ? validate_input($_POST['product']) : '';
-$presentationVideo = isset($_POST['presentationVideo']) ? validate_input($_POST['presentationVideo']) : '';
 $technologyLevel = validate_input($_POST['technologyLevel']);
 $describeProduct = isset($_POST['describeProduct']) ? validate_input($_POST['describeProduct']) : '';
 $productPatent = validate_input($_POST['productPatent']);
@@ -66,15 +66,6 @@ if ($_FILES['productFile']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['
   move_uploaded_file($_FILES['productFile']['tmp_name'], $productFilePath);
 }
 
-$proofPoC = '';
-if ($_FILES['proofPoC']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['proofPoC'], $allowed_image_types)) {
-  $proofPoC = $_FILES['proofPoC']['name'];
-  $proofPoCExtension = pathinfo($proofPoC, PATHINFO_EXTENSION);
-  $proofPoCName = 'proofPoC_' . date('YmdHis') . '.' . $proofPoCExtension;
-  $proofPoCPath = $folderName . '/' . $proofPoCName;
-  move_uploaded_file($_FILES['proofPoC']['tmp_name'], $proofPoCPath);
-}
-
 $similarProductFile = '';
 if ($_FILES['similarProductFile']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['similarProductFile'], $allowed_doc_types)) {
   $similarProductFile = $_FILES['similarProductFile']['name'];
@@ -82,15 +73,6 @@ if ($_FILES['similarProductFile']['error'] === UPLOAD_ERR_OK && validate_file($_
   $similarProductFileName = 'similarProductFile_' . date('YmdHis') . '.' . $similarProductFileExtension;
   $similarProductFilePath = $folderName . '/' . $similarProductFileName;
   move_uploaded_file($_FILES['similarProductFile']['tmp_name'], $similarProductFilePath);
-}
-
-$shareholding = '';
-if ($_FILES['shareholding']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['shareholding'], $allowed_doc_types)) {
-  $shareholding = $_FILES['shareholding']['name'];
-  $shareholdingExtension = pathinfo($shareholding, PATHINFO_EXTENSION);
-  $shareholdingName = 'shareholding_' . date('YmdHis') . '.' . $shareholdingExtension;
-  $shareholdingPath = $folderName . '/' . $shareholdingName;
-  move_uploaded_file($_FILES['shareholding']['tmp_name'], $shareholdingPath);
 }
 
 $incorporation = '';
@@ -112,18 +94,18 @@ if ($_FILES['idProof']['error'] === UPLOAD_ERR_OK && validate_file($_FILES['idPr
 }
 
 // Server-side validation (example for required fields)
-if (empty($applicantName) || empty($organizationName) || empty($contactNumber) || empty($email) || empty($city) || empty($state) || empty($postalAddress) || empty($applying) || empty($industry) || empty($problemsStatement)) {
+if (empty($applicantName) || empty($organizationName) || empty($contactNumber) || empty($email) || empty($city) || empty($state) || empty($postalAddress) || empty($category) || empty($applying) || empty($industry) || empty($problemsStatement)) {
   die('All required fields must be filled out.');
 }
 
 // Insert data into the database using prepared statements
 try {
-  $sql = "INSERT INTO applicant (applicantName, organizationName, contactNumber, email, city, state, postalAddress, applying, industry, otherindustry, problemsStatement, applicationVerticals, website, status, createAt, uniqueId)
-        VALUES ('$applicantName', '$organizationName', '$contactNumber', '$email', '$city', '$state', '$postalAddress', '$applying', '$industry', '$otherindustry', '$problemsStatement', '$applicationVerticals', '$website', '$status', '$createAt', '$uniqueId')";
+  $sql = "INSERT INTO applicant (applicantName, organizationName, contactNumber, email, city, state, postalAddress, category, applying, industry, otherindustry, problemsStatement, applicationVerticals, website, status, createAt, uniqueId)
+        VALUES ('$applicantName', '$organizationName', '$contactNumber', '$email', '$city', '$state', '$postalAddress', '$category', '$applying', '$industry', '$otherindustry', '$problemsStatement', '$applicationVerticals', '$website', '$status', '$createAt', '$uniqueId')";
   if ($conn->query($sql) === TRUE) {
     $uniqueApplicant = $conn->insert_id;
-    $sql1 = "INSERT INTO technical (domain, product, productFile, presentationVideo, technologyLevel, proofPoC, describeProduct, productPatent, patentDetails, similarProduct, similarProductFile, status, createAt, uniqueId, uniqueApplicant) VALUES ('$domain', '$product', '$productFilePath', '$presentationVideo', '$technologyLevel', '$proofPoCPath', '$describeProduct', '$productPatent', '$patentDetails', '$similarProduct', '$similarProductFilePath', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
-    $sql2 = "INSERT INTO documents (shareholding, incorporation, idProof, status, createAt, uniqueId, uniqueApplicant) VALUES ('$shareholdingPath', '$incorporationPath', '$idProofPath', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
+    $sql1 = "INSERT INTO technical (domain, product, productFile, technologyLevel, describeProduct, productPatent, patentDetails, similarProduct, similarProductFile, status, createAt, uniqueId, uniqueApplicant) VALUES ('$domain', '$product', '$productFilePath', '$technologyLevel', '$describeProduct', '$productPatent', '$patentDetails', '$similarProduct', '$similarProductFilePath', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
+    $sql2 = "INSERT INTO documents (incorporation, idProof, status, createAt, uniqueId, uniqueApplicant) VALUES ('$incorporationPath', '$idProofPath', '$status', '$createAt', '$uniqueId', '$uniqueApplicant')";
     if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
       $to = $email;
       $subject = 'Application Submission for 5G/6G Hackathon';
