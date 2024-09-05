@@ -53,6 +53,7 @@ function validateForm() {
     "city",
     "state",
     "postalAddress",
+    "category",
     "applying",
     "industry",
     "problemsStatement",
@@ -94,22 +95,12 @@ function validateForm() {
     valid = false;
   }
 
-  const urlPattern1 = /^(https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)[a-zA-Z0-9_-]{11}$/;
-  const presentationVideo = document.forms["applicationForm"]["presentationVideo"].value.trim();
-  if (presentationVideo && !urlPattern1.test(presentationVideo)) {
-    document.getElementById("presentationVideoError").innerText =
-      "Please enter a valid YouTube URL starting with www or https";
-    valid = false;
-  }
-
   // File Type Validation
   const fileInputs = {
     productFile: ["pdf", "doc", "docx"],
-    proofPoC: ["jpg", "jpeg", "png"],
-    shareholding: ["pdf"],
+    similarProductFile: ["pdf", "ppt", "pptx"],
     incorporation: ["pdf"],
     idProof: ["pdf"],
-    similarProductFile: ["pdf", "ppt", "pptx"],
   };
   const maxSizeMB = 10;
 

@@ -158,7 +158,7 @@ try {
   // echo "Application submitted successfully.";
 } catch (Exception $e) {
   // Error handling
-  $a =  "Error: " . $e->getMessage();
-  echo "<script>alert(''.$a);</script>";
+  // $a =  "Error: " . $e->getMessage();
+  echo "<script>alert('" . $e->getMessage() . "');</script>";
 }
 echo "<script> window.location.href='applicantView';</script>";
