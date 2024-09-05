@@ -50,7 +50,7 @@ $uniqueId = $_SESSION['uniqueId'];
                 <h2 class="">My Application</h2>
             </div>
             <div class="col-lg-3 col-md-3">
-                <button type="button" id="psButton" class="btn btn-primary text-white">Add More Problem Statements</button>
+                <button type="button" id="psButton" class="btn btn-primary text-white">Apply More Problem Statements</button>
             </div>
             <div class="col-lg-6 col-md-6">
                 <?php
