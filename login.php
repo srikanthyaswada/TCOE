@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // Prepare SQL statement to prevent SQL injection
-$sql = $conn->prepare("SELECT uniqueId, password FROM users WHERE email = ?");
+$sql = $conn->prepare("SELECT uniqueId, password FROM users WHERE email = ? and role = 'participant' ");
 $sql->bind_param("s", $email);
 $sql->execute();
 $sql->store_result();

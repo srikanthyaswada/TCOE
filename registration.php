@@ -17,8 +17,8 @@ $randomNumber = mt_rand(100000, 999999);
 // Insert data into database
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try {
-    $sql = "INSERT INTO users (fullname, email, password, categoryType, categoryName, status, createAt, access_code, reset_token, reset_expiry) 
-        VALUES ('$fullname', '$email', '$password', '$categoryType', '$categoryName', '$status', '$createAt', '$randomNumber', Null, Null)";
+    $sql = "INSERT INTO users (fullname, email, password, categoryType, categoryName, status, createAt, access_code, reset_token, reset_expiry, role) 
+        VALUES ('$fullname', '$email', '$password', '$categoryType', '$categoryName', '$status', '$createAt', '$randomNumber', Null, Null, 'participant')";
 
     if ($conn->query($sql) === TRUE) {
         $folderName = 'assets/users/' . $conn->insert_id;
