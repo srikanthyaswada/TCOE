@@ -1909,7 +1909,7 @@
           </div>
           <div class="col-md-3">
             <div class="footer-links">
-              <a href="#" class="mx-2">Platform Guide</a> |
+              <a href="#" class="mx-2">Terms and Conditions</a> |
               <a href="#" class="mx-2">Privacy Policy</a>
             </div>
           </div>
