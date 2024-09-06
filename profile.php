@@ -23,18 +23,35 @@ $uniqueId = $_SESSION['uniqueId'];
 </head>
 
 <body>
-    <header class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="participant">
-                <img src="./assets/images/Tcoe_logo.jpg" alt="Logo" width="80" height="50" />
-            </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <a class="navbar-brand p-0" href="participant">
+            <img
+                src="./assets/images/Tcoe_logo.jpg"
+                class="logo ms-5 p-0"
+                alt="" />
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="profileDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         <i class="bi bi-person-circle" style="font-size: 2rem"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                    <ul
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="profileDropdown">
                         <li><a class="dropdown-item" href="participant">Home</a></li>
                         <li><a class="dropdown-item" href="profile">Profile</a></li>
                         <li><a class="dropdown-item" href="applicantView">My Application</a></li>
@@ -43,7 +60,44 @@ $uniqueId = $_SESSION['uniqueId'];
                 </li>
             </ul>
         </div>
-    </header>
+    </nav>
+    <!-- Offcanvas Menu for Mobile -->
+    <div
+        class="offcanvas offcanvas-end w-50"
+        tabindex="-1"
+        id="offcanvasMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="participant">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="applicantView">My Application</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="applicantView">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="row g-0">
         <div class="col-sm-6 m-auto mt-5">
             <div class="profile-card">

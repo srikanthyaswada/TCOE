@@ -8,6 +8,10 @@ body {
 h4 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.logo {
+  width: 65px;
+  height: 65px;
+}
 .profile-card {
   max-width: 400px;
   margin: auto;

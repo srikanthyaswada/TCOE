@@ -2,6 +2,10 @@ body {
   font-family: inter, sans-serif;
   background: url(../images/bg3.png) repeat !important;
 }
+.logo {
+  width: 65px;
+  height: 65px;
+}
 .container {
   /* background-color: #ffffff; */
   padding: 20px;

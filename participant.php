@@ -25,6 +25,7 @@ if (!isset($_SESSION['uniqueId'])) {
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/index.css" />
+  <link rel="stylesheet" href="assets/css/carousels.css" />
 </head>
 
 <body>
@@ -142,7 +143,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </button>
       </div>
     </header>
-
     <!-- About Us Section -->
     <section id="about" class="about-section">
       <div class="container-fluid">
@@ -157,368 +157,246 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </section>
-
     <!-- Problem Statements Section -->
-    <section id="problem-statements" class="py-5">
-      <div class="container-fluid">
-        <div class="text-center mb-5">
-          <h2 class="section-heading">Problem Statements</h2>
-        </div>
-        <div
-          id="problemStatementsCarousel"
-          class="carousel slide"
-          data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-              <div class="row justify-content-center">
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/suo_moto.png"
-                      class="card-img-top"
-                      alt="Suo Moto" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">
-                        Suo Moto
-                        <span class="text-white">Suo Moto</span>
-                      </h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="Suo Moto">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal1">View More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4 d-none d-md-block">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/ai_driven.png"
-                      class="card-img-top"
-                      alt="AI-Driven Network Maintenance" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">
-                        AI-Driven Network Maintenance
-                      </h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="AI-Driven Network Maintenance">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal2">View More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4 d-none d-md-block">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/multi_model.png"
-                      class="card-img-top"
-                      alt="Multi-Modal Interactive System" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">
-                        Multi-Modal Interactive System
-                      </h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="Multi-Modal Interactive System">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal3">View More</a>
-                      </div>
+    <div class="container-fluid text-center my-3" id="problemstatements">
+      <div class="text-center mb-5">
+        <h2 class="section-heading">Problem Statements</h2>
+      </div>
+      <div class="row mx-auto my-auto justify-content-center">
+        <div id="recipeCarousel1" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <!-- Carousel items for Section 1 -->
+            <div class="carousel-item gap-3 active">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/suo_moto.png" class="card-img-top" alt="Suo Moto" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">
+                      Suo Moto
+                      <span class="text-white">Suo Moto</span>
+                    </h5>
+                    <div class="">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="Suo Moto">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal1">View More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/5g_kiosk.jpg"
-                      class="card-img-top"
-                      alt="5G Kiosk" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">5G Kiosk</h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="5G Kiosk">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal4">View More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4 d-none d-md-block">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/5g_enabled.png"
-                      class="card-img-top"
-                      alt="5G Enabled Consoles/Devices" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">
-                        5G Enabled Consoles/Devices For Students
-                      </h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="5G Enabled Consoles/Devices For Students">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal5">View More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4 d-none d-md-block">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/realtime_control.png"
-                      class="card-img-top"
-                      alt="Real Time Control Of Advanced Drones" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">
-                        Real Time Control Of Advanced Drones
-                      </h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="Real Time Control Of Advanced Drones">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal6">View More</a>
-                      </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/ai_driven.png" class="card-img-top"
+                    alt="AI-Driven Network Maintenance" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">
+                      AI-Driven Network Maintenance
+                    </h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="AI-Driven Network Maintenance">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal2">View More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Slide 3 -->
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/digital_twin.png"
-                      class="card-img-top"
-                      alt="Digital Twin Technology" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">Digital Twin Technology</h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="Digital Twin Technology">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal7">View More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4 d-none d-md-block">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/ntn.png"
-                      class="card-img-top"
-                      alt="NTN Communications" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">
-                        Non-Terrestrial Network (NTN) Communications
-                      </h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="Non-Terrestrial Network (NTN) Communications">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal8">View More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4 d-none d-md-block">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/images/5g_broadcast.png"
-                      class="card-img-top"
-                      alt="5G Broadcasting" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">5G Broadcasting</h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="5G Broadcasting">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal9">View More</a>
-                      </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/multi_model.png" class="card-img-top"
+                    alt="Multi-Modal Interactive System" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">
+                      Multi-Modal Interactive System
+                    </h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="Multi-Modal Interactive System">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal3">View More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Slide 4 -->
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/problem_statements/5g broadcast 10.jpeg"
-                      class="card-img-top"
-                      alt="Emergency Communication Systems" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">5G BROADCASTS</h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="5G BROADCASTS">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal10">View More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4 d-none d-md-block">
-                  <div class="card h-100">
-                    <img
-                      src="./assets/problem_statements/5g oran.png"
-                      class="card-img-top"
-                      alt="Virtual Networking and SDN" />
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">5G O-RAN</h5>
-                      <div class="d-flex justify-content-between mt-auto">
-                        <button
-                          class="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#applyModal" data-user-name="5G O-RAN">
-                          Apply Now
-                        </button>
-                        <a
-                          href="#"
-                          class="btn btn-link"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewMoreModal11">View More</a>
-                      </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/5g_kiosk.jpg" class="card-img-top" alt="5G Kiosk" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">5G Kiosk</h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="5G Kiosk">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal4">View More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/5g_enabled.png" class="card-img-top"
+                    alt="5G Enabled Consoles/Devices" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">
+                      5G Enabled Consoles/Devices For Students
+                    </h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="5G Enabled Consoles/Devices For Students">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal5">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/realtime_control.png" class="card-img-top"
+                    alt="Real Time Control Of Advanced Drones" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">
+                      Real Time Control Of Advanced Drones
+                    </h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="Real Time Control Of Advanced Drones">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal6">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/digital_twin.png" class="card-img-top"
+                    alt="Digital Twin Technology" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">Digital Twin Technology</h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="Digital Twin Technology">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal7">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/ntn.png" class="card-img-top" alt="NTN Communications" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">
+                      Non-Terrestrial Network (NTN) Communications
+                    </h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="Non-Terrestrial Network (NTN) Communications">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal8">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/images/5g_broadcast.png" class="card-img-top"
+                    alt="5G Broadcasting" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">5G Broadcasting</h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="5G Broadcasting">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal9">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/problem_statements/5g broadcast 10.jpeg" class="card-img-top"
+                    alt="Emergency Communication Systems" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">5G BROADCASTS</h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="5G BROADCASTS">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal10">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/problem_statements/5g oran.png" class="card-img-top"
+                    alt="Virtual Networking and SDN" />
+                  <div class="card-body">
+                    <h5 class="card-title h6">5G O-RAN</h5>
+                    <div class="d-flex justify-content-between mt-auto">
+                      <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#applyModal" data-user-name="5G O-RAN">
+                        Apply Now
+                      </button>
+                      <a href="#" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#viewMoreModal11">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add more slides as needed for Section 1 -->
           </div>
-
-          <!-- Carousel controls -->
-          <!-- <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#problemStatementsCarousel"
-            data-bs-slide="prev">
-            <span
-              class="carousel-control-prev-icon"
-              aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#problemStatementsCarousel"
-            data-bs-slide="next">
-            <span
-              class="carousel-control-next-icon"
-              aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button> -->
-
-          <!-- Carousel indicators -->
-          <div class="carousel-indicators position-relative mt-4">
-            <button
-              type="button"
-              data-bs-target="#problemStatementsCarousel"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"></button>
-            <button
-              type="button"
-              data-bs-target="#problemStatementsCarousel"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
-            <button
-              type="button"
-              data-bs-target="#problemStatementsCarousel"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"></button>
-            <button
-              type="button"
-              data-bs-target="#problemStatementsCarousel"
-              data-bs-slide-to="3"
-              aria-label="Slide 4"></button>
-          </div>
+          <!-- Controls for Section 1 -->
+          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel1" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel1" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
         </div>
       </div>
-    </section>
-
+    </div>
     <!-- Modal 1 -->
     <div
       class="modal fade"
@@ -567,7 +445,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 2 -->
     <div
       class="modal fade"
@@ -598,7 +475,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 3 -->
     <div
       class="modal fade"
@@ -631,7 +507,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 4 -->
     <div
       class="modal fade"
@@ -668,7 +543,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 5 -->
     <div
       class="modal fade"
@@ -703,7 +577,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 6 -->
     <div
       class="modal fade"
@@ -739,7 +612,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 7 -->
     <div
       class="modal fade"
@@ -776,7 +648,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 8 -->
     <div
       class="modal fade"
@@ -815,7 +686,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- Modal 9 -->
     <div
       class="modal fade"
@@ -888,7 +758,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- modal 11 -->
     <div
       class="modal fade"
@@ -922,7 +791,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </div>
-
     <!-- apply now model -->
     <div
       class="modal fade"
@@ -1468,7 +1336,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </section>
-
     <!-- Timelines Section -->
     <section id="timelines" class="bg-white">
       <div class="container-fluid text-center">
@@ -1480,146 +1347,135 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </section>
-
     <!-- Mentors Section -->
-    <section id="meet-our-mentors">
-      <div class="container-fluid">
-        <div class="text-center">
-          <h2 class="section-heading">Meet Our Mentors</h2>
-        </div>
-        <div id="mentorsCarousel" class="carousel slide" data-bs-ride="carousel">
-          <!-- Carousel Inner -->
-          <div class="carousel-inner">
-            <!-- Carousel Item 1 -->
-            <div class="carousel-item active">
-              <div class="row justify-content-center">
-                <!-- Mentor 1 -->
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_Neil.png" class="card-img-top mentor-img" alt="Neil Shah" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Neil Shah</h5>
-                      <p class="card-text">Counter Point Research</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Mentor 2 -->
-                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_Ravi_Sina.png" class="card-img-top mentor-img" alt="Ravi Sinha" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Ravi Sinha</h5>
-                      <p class="card-text">O-Ran Alliance</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Mentor 3 -->
-                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_Aayush.png" class="card-img-top mentor-img" alt="Aayush Bhatnagar" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Aayush Bhatnagar</h5>
-                      <p class="card-text">Jio</p>
-                    </div>
+    <div class="container-fluid text-center my-3" id="meetourmentors">
+      <div class="text-center">
+        <h2 class="section-heading">Meet Our Mentors</h2>
+      </div>
+      <div class="row mx-auto my-auto justify-content-center">
+        <div id="recipeCarousel2" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <!-- Carousel items for Section 2 -->
+            <div class="carousel-item gap-3 active">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_Neil.png" class="card-img-top mentor-img"
+                    alt="Neil Shah" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Neil Shah</h5>
+                    <p class="card-text">Counter Point Research</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Carousel Item 2 -->
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                <!-- Mentor 4 -->
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_mentor.png" class="card-img-top mentor-img" alt="Sanjay Kumar" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Sanjay Kumar</h5>
-                      <p class="card-text">TelcoLearn</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Mentor 5 -->
-                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_gopi.png" class="card-img-top mentor-img" alt="Gopi Krishna Lakkepuram" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Gopi Krishna Lakkepuram</h5>
-                      <p class="card-text">Hyperleap AI</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Mentor 6 -->
-                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_kiran.png" class="card-img-top mentor-img" alt="Kiran Babu" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Kiran Babu</h5>
-                      <p class="card-text">Rava AI</p>
-                    </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_Ravi_Sina.png" class="card-img-top mentor-img"
+                    alt="Ravi Sinha" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Ravi Sinha</h5>
+                    <p class="card-text">O-Ran Alliance</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Carousel Item 3 -->
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                <!-- Mentor 7 -->
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_rajan.png" class="card-img-top mentor-img" alt="Ranjan Relan" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Ranjan Relan</h5>
-                      <p class="card-text">AgentAnalytics.AI</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Mentor 8 -->
-                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_pushkar.png" class="card-img-top mentor-img" alt="Pushkar Apte" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Pushkar Apte</h5>
-                      <p class="card-text">Qualcomm India Pvt. Ltd.</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Mentor 9 -->
-                <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                  <div class="card h-100 text-center">
-                    <img src="./assets/mentors/medium_rajesh.png" class="card-img-top mentor-img" alt="Rajesh Kumar Pathak" />
-                    <div class="card-body d-flex flex-column align-items-center">
-                      <h5 class="card-title">Rajesh Kumar Pathak</h5>
-                      <p class="card-text">Bharat 6G Alliance</p>
-                    </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_Aayush.png" class="card-img-top mentor-img"
+                    alt="Aayush Bhatnagar" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Aayush Bhatnagar</h5>
+                    <p class="card-text">Jio</p>
                   </div>
                 </div>
               </div>
             </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_mentor.png" class="card-img-top mentor-img"
+                    alt="Sanjay Kumar" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Sanjay Kumar</h5>
+                    <p class="card-text">TelcoLearn</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_gopi.png" class="card-img-top mentor-img"
+                    alt="Gopi Krishna Lakkepuram" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Gopi Krishna Lakkepuram</h5>
+                    <p class="card-text">Hyperleap AI</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_kiran.png" class="card-img-top mentor-img"
+                    alt="Kiran Babu" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Kiran Babu</h5>
+                    <p class="card-text">Rava AI</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_rajan.png" class="card-img-top mentor-img"
+                    alt="Ranjan Relan" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Ranjan Relan</h5>
+                    <p class="card-text">AgentAnalytics.AI</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_pushkar.png" class="card-img-top mentor-img"
+                    alt="Pushkar Apte" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Pushkar Apte</h5>
+                    <p class="card-text">Qualcomm India Pvt. Ltd.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ]<div class="carousel-item gap-3">
+              <div class="col-md-3">
+                <div class="card h-100 text-center">
+                  <img src="assets/mentors/medium_rajesh.png" class="card-img-top mentor-img"
+                    alt="Rajesh Kumar Pathak" />
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title h6">Rajesh Kumar Pathak</h5>
+                    <p class="card-text">Bharat 6G Alliance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add more slides as needed for Section 2 -->
           </div>
-
-          <!-- Carousel Controls -->
-          <!-- <a class="carousel-control-prev" href="#mentorsCarousel" role="button" data-bs-slide="prev">
+          <!-- Controls for Section 2 -->
+          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel2" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#mentorsCarousel" role="button" data-bs-slide="next">
+          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel2" role="button" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </a> -->
-
-          <!-- Carousel Indicators -->
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#mentorsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#mentorsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#mentorsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
+          </a>
         </div>
       </div>
-    </section>
-
-
+    </div>
     <!-- Prize Money Section -->
     <section id="prize" class="price-section">
       <div class="container-fluid">
@@ -1634,8 +1490,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </section>
-
-
     <!-- FAQs Section -->
     <section id="faqs">
       <div class="container-fluid">
@@ -1821,7 +1675,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </section>
-
     <!-- Contact Us Section -->
     <section id="contact" class="py-5">
       <div class="container-fluid text-center">
@@ -1858,7 +1711,6 @@ if (!isset($_SESSION['uniqueId'])) {
         </div>
       </div>
     </section>
-
     <footer class="py-4">
       <div class="container-fluid text-center">
         <div
@@ -1884,17 +1736,15 @@ if (!isset($_SESSION['uniqueId'])) {
 </body>
 
 </html>
-
+<script src="assets/js/carosels.js"></script>
 <script>
   $(document).ready(function() {
     // When the modal is about to be shown
     $('#applyModal').on('show.bs.modal', function(event) {
       // Button that triggered the modal
       var button = $(event.relatedTarget);
-
       // Extract the data from the button
       var userName = button.data('user-name');
-
       // Update the modal's content
       var modal = $(this);
       // modal.find('.modal-title').text('Welcome ' + userName);

@@ -23,18 +23,36 @@ $uniqueId = $_SESSION['uniqueId'];
 </head>
 
 <body>
-    <header class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="participant">
-                <img src="./assets/images/Tcoe_logo.jpg" alt="Logo" width="80" height="50" />
-            </a>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <a class="navbar-brand p-0" href="participant">
+            <img
+                src="./assets/images/Tcoe_logo.jpg"
+                class="logo ms-5 p-0"
+                alt="" />
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="profileDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         <i class="bi bi-person-circle" style="font-size: 2rem"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                    <ul
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="profileDropdown">
                         <li><a class="dropdown-item" href="participant">Home</a></li>
                         <li><a class="dropdown-item" href="profile">Profile</a></li>
                         <li><a class="dropdown-item" href="applicantView">My Application</a></li>
@@ -43,7 +61,7 @@ $uniqueId = $_SESSION['uniqueId'];
                 </li>
             </ul>
         </div>
-    </header>
+    </nav>
     <div class="container mt-0">
         <div class="row justify-content-center">
             <div class="col-lg-9 col-md-9">
