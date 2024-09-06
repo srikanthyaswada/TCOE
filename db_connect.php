@@ -1,7 +1,7 @@
 <?php
 // db_connect.php
 
-$servername = "localhost";
+$servername = "103.191.208.92";
 $username = "g6ghackathon2024_hackathon";
 $password = "q5brzU}~!7F2";
 $dbname = "g6ghackathon2024_hackathon";
