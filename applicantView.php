@@ -186,14 +186,6 @@ $uniqueId = $_SESSION['uniqueId'];
                                             </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class="">
-                                                <label class="h5">Power Point Presentation /two-minute product video</label>
-                                            </div>
-                                            <div class="">
-                                                <p><a href="<?= $row['presentationVideo'] ?>" target="_new" class="text-decoration-none"><?= $row['presentationVideo'] ?></a></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
                                             <div class=""><label class="h5">Technology Readiness Level</label></div>
                                             <div class="">
                                                 <p><?= $row['technologyLevel'] ?></p>
@@ -258,21 +250,9 @@ $uniqueId = $_SESSION['uniqueId'];
                                     data-bs-parent="#applicationAccordion">
                                     <div class="accordion-body">
                                         <div class="row mb-2">
-                                            <div class=""><label class="h5">51% Indian shareholding Proof</label></div>
-                                            <div class="">
-                                                <p><a href="<?= $row['shareholding'] ?>" target="_new" class="text-decoration-none"><?= $row['shareholding'] ?></a></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
                                             <div class=""><label class="h5">Incorporation Certificate</label></div>
                                             <div class="">
                                                 <p><a href="<?= $row['incorporation'] ?>" target="_new" class="text-decoration-none"><?= $row['incorporation'] ?></a></p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class=""><label class="h5">Applicant Id Proof</label></div>
-                                            <div class="">
-                                                <p><a href="<?= $row['idProof'] ?>" target="_new" class="text-decoration-none"><?= $row['idProof'] ?></a></p>
                                             </div>
                                         </div>
                                     </div>
